@@ -116,7 +116,6 @@ async function activateCenter() {
     mod.EnableGameModeObjective(centerSector, true);
     await mod.Wait(1);
     mod.EnableGameModeObjective(centerCp, true);
-    mod.EnableCapturePointDeploying(centerCp, true);
 }
 
 function deactivateCenter() {
@@ -239,7 +238,6 @@ async function activatePair(
     mod.EnableGameModeObjective(sectors[index], true);
     await mod.Wait(1);
     mod.EnableGameModeObjective(capturePoints[index], true);
-    mod.EnableCapturePointDeploying(capturePoints[index], true);
 }
 
 function deactivatePair(
@@ -374,14 +372,7 @@ function updateScoreBoardTotal() {
 }
 
 function getSecondsPerPoint(pointsHeld: number): number {
-    if (pointsHeld === 3) {
-        return 1;
-    } else if (pointsHeld === 2) {
-        return 5;
-    } else if (pointsHeld === 1) {
-        return 10;
-    }
-    return 0;
+    return pointsHeld === 1 ? 10 : 0;
 }
 
 function updateTeamScores() {
