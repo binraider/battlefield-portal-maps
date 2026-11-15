@@ -3,7 +3,7 @@ const CP_ID_BASE = 200;
 const SECTOR_ID_BASE = 300;
 const CENTER_CP_ID = 250;
 const CENTER_SECTOR_ID = 350;
-const ROTATE_SECONDS = 120;
+const ROTATE_SECONDS = 90;
 const MATCH_TIME_SECONDS = 20 * 60;
 
 let team1ScoreTimer = 0;
@@ -27,7 +27,7 @@ const playerAssists: number[] = [];
 const cpDistances: number[][] = [];
 /** World positions of rotating CPs (for first handoff from center). */
 const cpPositions: mod.Vector[] = [];
-/** Oldest → newest indices of recently active rotating CPs (max 3). */
+/** Oldest → newest indices of recently active rotating CPs (max 5). */
 const recentCpIndices: number[] = [];
 
 export async function OnGameModeStarted() {
@@ -290,7 +290,7 @@ function isRecentCp(index: number): boolean {
 
 function recordRecentCp(index: number) {
     recentCpIndices.push(index);
-    while (recentCpIndices.length > 3) {
+    while (recentCpIndices.length > 5) {
         recentCpIndices.shift();
     }
 }
@@ -337,7 +337,7 @@ function pickSecondNearest(candidates: number[]): number {
     return candidates[1];
 }
 
-/** First handoff off the center opener: second-nearest rotating CP to center (not in last three). */
+/** First handoff off the center opener: second-nearest rotating CP to center (not in last five). */
 function pickNextCpIndexFromPosition(fromPosition: mod.Vector): number {
     const candidates = collectRotatingCandidates(-1);
     sortCandidatesByDistance(candidates, (index) =>
