@@ -5,6 +5,16 @@ const CENTER_CP_ID = 250;
 const CENTER_SECTOR_ID = 350;
 const ROTATE_SECONDS = 90;
 const MATCH_TIME_SECONDS = 20 * 60;
+const TARGET_SCORE = 50;
+
+const SCORE_KILL = 100;
+const SCORE_ASSIST = 50;
+const SCORE_REVIVE = 75;
+const SCORE_HILL_PER_SECOND = 10;
+
+const PREVIEW_ICON_ID = 400;
+const PREVIEW_SECONDS = 30; // temporarily longer for playtest; COD-style is ~10
+const PREVIEW_ICON_HEIGHT = 2;
 
 let team1ScoreTimer = 0;
 let team2ScoreTimer = 0;
@@ -20,8 +30,16 @@ let centerCp: mod.CapturePoint;
 let centerSector: mod.Sector;
 let centerPosition: mod.Vector;
 
+/** Single movable WorldIcon for COD-style next-hill preview. */
+let previewIcon: mod.WorldIcon;
+/** Cached upcoming rotating CP index while preview is up; -1 when none. */
+let previewedNextIndex = -1;
+let previewVisible = false;
+
 /** Assist counts keyed by mod.GetObjId(player). Engine has no GetPlayerAssists. */
 const playerAssists: number[] = [];
+/** Personal combat score keyed by mod.GetObjId(player). */
+const playerScores: number[] = [];
 
 /** Pairwise distances between rotating CPs (built once at match start). */
 const cpDistances: number[][] = [];
@@ -59,6 +77,17 @@ export async function OnGameModeStarted() {
     buildCpDistanceMatrix(capturePoints);
     centerPosition = mod.GetObjectPosition(centerCp as unknown as mod.Object);
 
+    previewIcon = mod.GetWorldIcon(PREVIEW_ICON_ID);
+    mod.SetWorldIconImage(previewIcon, mod.WorldIconImages.Triangle);
+    mod.SetWorldIconColor(previewIcon, mod.CreateVector(1, 0.75, 0.2));
+    hideNextHillPreview();
+
+    // Smoke test: prove ObjId 400 + enable/move work, then hide before live play.
+    movePreviewIconTo(centerPosition);
+    mod.EnableWorldIconImage(previewIcon, true);
+    await mod.Wait(5);
+    hideNextHillPreview();
+
     // Always open on the center flag; it never reappears after the first handoff.
     centerActive = true;
     activeCpIndex = -1;
@@ -67,6 +96,7 @@ export async function OnGameModeStarted() {
 
     mod.SetGameModeScore(mod.GetTeam(1), 0);
     mod.SetGameModeScore(mod.GetTeam(2), 0);
+    mod.SetGameModeTargetScore(TARGET_SCORE);
 
     mod.SetScoreboardType((mod.ScoreboardType.CustomTwoTeams));
     setupScoreboardColumns();
@@ -77,22 +107,31 @@ export async function OnGameModeStarted() {
         await mod.Wait(1);
         elapsedSeconds++;
 
+        updateNextHillPreview();
+
         if (nextRotateAt >= 0 && elapsedSeconds >= nextRotateAt) {
             nextRotateAt = elapsedSeconds + ROTATE_SECONDS;
 
             if (centerActive) {
+                const newIndex = previewedNextIndex >= 0
+                    ? previewedNextIndex
+                    : pickNextCpIndexFromPosition(centerPosition);
+                hideNextHillPreview();
                 deactivateCenter();
                 centerActive = false;
-                const newIndex = pickNextCpIndexFromPosition(centerPosition);
                 activeCpIndex = newIndex;
                 recordRecentCp(newIndex);
                 await activatePair(newIndex, capturePoints, sectors);
             } else {
                 const oldIndex = activeCpIndex;
-                const newIndex = pickNextCpIndex();
+                const newIndex = previewedNextIndex >= 0
+                    ? previewedNextIndex
+                    : pickNextCpIndex();
                 if (newIndex === oldIndex) {
+                    hideNextHillPreview();
                     continue;
                 }
+                hideNextHillPreview();
                 deactivatePair(oldIndex, capturePoints, sectors);
                 await mod.Wait(1);
                 activeCpIndex = newIndex;
@@ -102,7 +141,11 @@ export async function OnGameModeStarted() {
         }
 
         updateTeamScores();
+        awardHillPlayerScores();
         updateScoreBoardTotal();
+        if (tryEndMatchByScore()) {
+            break;
+        }
     }
 }
 
@@ -123,12 +166,66 @@ function deactivateCenter() {
     mod.EnableGameModeObjective(centerSector, false);
 }
 
+function getUpcomingCpIndex(): number {
+    if (centerActive) {
+        return pickNextCpIndexFromPosition(centerPosition);
+    }
+    return pickNextCpIndex();
+}
+
+function hideNextHillPreview() {
+    mod.EnableWorldIconImage(previewIcon, false);
+    mod.EnableWorldIconText(previewIcon, false);
+    previewVisible = false;
+    previewedNextIndex = -1;
+}
+
+function movePreviewIconTo(position: mod.Vector) {
+    const lifted = mod.CreateVector(
+        mod.XComponentOf(position),
+        mod.YComponentOf(position) + PREVIEW_ICON_HEIGHT,
+        mod.ZComponentOf(position)
+    );
+    const transform = mod.CreateTransform(lifted, mod.CreateVector(0, 0, 0));
+    mod.SetObjectTransform(previewIcon, transform);
+}
+
+function showNextHillPreview(index: number) {
+    if (index < 0 || index >= CP_COUNT) {
+        return;
+    }
+    movePreviewIconTo(cpPositions[index]);
+    mod.SetWorldIconImage(previewIcon, mod.WorldIconImages.Triangle);
+    mod.EnableWorldIconImage(previewIcon, true);
+    mod.EnableWorldIconText(previewIcon, false);
+    previewedNextIndex = index;
+    previewVisible = true;
+}
+
+/** Show next-hill marker once we are within PREVIEW_SECONDS of rotation. */
+function updateNextHillPreview() {
+    if (previewVisible) {
+        return;
+    }
+    if (nextRotateAt < 0) {
+        return;
+    }
+    if (nextRotateAt - elapsedSeconds > PREVIEW_SECONDS) {
+        return;
+    }
+    const upcoming = getUpcomingCpIndex();
+    if (upcoming < 0 || (!centerActive && upcoming === activeCpIndex)) {
+        return;
+    }
+    showNextHillPreview(upcoming);
+}
+
 export function OnPlayerJoinGame(eventPlayer: mod.Player) {
     if (!mod.IsPlayerValid(eventPlayer)) {
         return;
     }
     assignBalancedRandomTeam(eventPlayer);
-    playerAssists[mod.GetObjId(eventPlayer)] = 0;
+    initPlayerStats(eventPlayer);
     updatePlayerScoreboard(eventPlayer);
 }
 
@@ -177,10 +274,7 @@ export function OnPlayerDeployed(eventPlayer: mod.Player) {
     if (!mod.IsPlayerValid(eventPlayer)) {
         return;
     }
-    const id = mod.GetObjId(eventPlayer);
-    if (!playerAssists[id]) {
-        playerAssists[id] = 0;
-    }
+    initPlayerStats(eventPlayer);
     updatePlayerScoreboard(eventPlayer);
 }
 
@@ -190,7 +284,9 @@ export function OnPlayerEarnedKill(
     _eventDeathType: mod.DeathType,
     _eventWeaponUnlock: mod.WeaponUnlock
 ) {
-    updatePlayerScoreboard(eventPlayer);
+    if (mod.IsPlayerValid(eventPlayer)) {
+        addPlayerScore(eventPlayer, SCORE_KILL);
+    }
     updatePlayerScoreboard(eventOtherPlayer);
 }
 
@@ -209,7 +305,35 @@ export function OnPlayerEarnedKillAssist(eventPlayer: mod.Player, _eventOtherPla
     }
     const id = mod.GetObjId(eventPlayer);
     playerAssists[id] = (playerAssists[id] ? playerAssists[id] : 0) + 1;
+    addPlayerScore(eventPlayer, SCORE_ASSIST);
+}
+
+/** Reviver is eventOtherPlayer; revived player is eventPlayer. */
+export function OnRevived(eventPlayer: mod.Player, eventOtherPlayer: mod.Player) {
+    if (!mod.IsPlayerValid(eventOtherPlayer)) {
+        return;
+    }
+    addPlayerScore(eventOtherPlayer, SCORE_REVIVE);
     updatePlayerScoreboard(eventPlayer);
+}
+
+function initPlayerStats(player: mod.Player) {
+    const id = mod.GetObjId(player);
+    if (!playerAssists[id]) {
+        playerAssists[id] = 0;
+    }
+    if (!playerScores[id]) {
+        playerScores[id] = 0;
+    }
+}
+
+function addPlayerScore(player: mod.Player, amount: number) {
+    if (!mod.IsPlayerValid(player) || amount <= 0) {
+        return;
+    }
+    const id = mod.GetObjId(player);
+    playerScores[id] = (playerScores[id] ? playerScores[id] : 0) + amount;
+    updatePlayerScoreboard(player);
 }
 
 function updatePlayerScoreboard(player: mod.Player) {
@@ -217,9 +341,11 @@ function updatePlayerScoreboard(player: mod.Player) {
         return;
     }
     const id = mod.GetObjId(player);
+    const score = playerScores[id] ? playerScores[id] : 0;
     const assists = playerAssists[id] ? playerAssists[id] : 0;
     mod.SetScoreboardPlayerValues(
         player,
+        score,
         mod.GetPlayerKills(player),
         mod.GetPlayerDeaths(player),
         assists
@@ -255,11 +381,12 @@ function deactivatePair(
 function setupScoreboardColumns() {
     // Column titles need literal label strings in strings.json (e.g. "Kills"), not "{}".
     mod.SetScoreboardColumnNames(
+        mod.Message(mod.stringkeys.score),
         mod.Message(mod.stringkeys.kills),
         mod.Message(mod.stringkeys.deaths),
         mod.Message(mod.stringkeys.assists)
     );
-    mod.SetScoreboardColumnWidths(40, 30, 30);
+    mod.SetScoreboardColumnWidths(35, 25, 20, 20);
     mod.SetScoreboardSorting(0);
 }
 
@@ -375,14 +502,64 @@ function getSecondsPerPoint(pointsHeld: number): number {
     return pointsHeld === 1 ? 10 : 0;
 }
 
+/** First team to TARGET_SCORE wins; ends the match. */
+function tryEndMatchByScore(): boolean {
+    const score1 = mod.GetGameModeScore(mod.GetTeam(1));
+    const score2 = mod.GetGameModeScore(mod.GetTeam(2));
+    if (score1 >= TARGET_SCORE) {
+        mod.EndGameMode(mod.GetTeam(1));
+        return true;
+    }
+    if (score2 >= TARGET_SCORE) {
+        mod.EndGameMode(mod.GetTeam(2));
+        return true;
+    }
+    return false;
+}
+
+function getActiveCapturePoint(): mod.CapturePoint | null {
+    if (centerActive) {
+        return centerCp;
+    }
+    if (activeCpIndex >= 0) {
+        return mod.GetCapturePoint(CP_ID_BASE + activeCpIndex);
+    }
+    return null;
+}
+
+/** +SCORE_HILL_PER_SECOND for each player standing on the owned hardpoint. */
+function awardHillPlayerScores() {
+    const cp = getActiveCapturePoint();
+    if (!cp) {
+        return;
+    }
+    const owner = mod.GetCurrentOwnerTeam(cp);
+    const team1 = mod.GetTeam(1);
+    const team2 = mod.GetTeam(2);
+    if (!mod.Equals(owner, team1) && !mod.Equals(owner, team2)) {
+        return;
+    }
+
+    const onPoint = mod.GetPlayersOnPoint(cp);
+    const n = mod.CountOf(onPoint);
+    for (var i = 0; i < n; i++) {
+        const p = mod.ValueInArray(onPoint, i) as mod.Player;
+        if (!mod.IsPlayerValid(p)) {
+            continue;
+        }
+        if (mod.Equals(mod.GetTeam(p), owner)) {
+            addPlayerScore(p, SCORE_HILL_PER_SECOND);
+        }
+    }
+}
+
 function updateTeamScores() {
     let team1PointsHeld = 0;
     let team2PointsHeld = 0;
 
-    if (centerActive || activeCpIndex >= 0) {
-        const owner = centerActive
-            ? mod.GetCurrentOwnerTeam(centerCp)
-            : mod.GetCurrentOwnerTeam(mod.GetCapturePoint(CP_ID_BASE + activeCpIndex));
+    const cp = getActiveCapturePoint();
+    if (cp) {
+        const owner = mod.GetCurrentOwnerTeam(cp);
         if (mod.Equals(owner, mod.GetTeam(1))) {
             team1PointsHeld = 1;
         } else if (mod.Equals(owner, mod.GetTeam(2))) {
