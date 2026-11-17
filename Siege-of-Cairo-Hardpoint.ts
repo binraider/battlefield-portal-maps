@@ -3,7 +3,7 @@ const CP_ID_BASE = 200;
 const SECTOR_ID_BASE = 300;
 const CENTER_CP_ID = 250;
 const CENTER_SECTOR_ID = 350;
-const ROTATE_SECONDS = 90;
+const ROTATE_SECONDS = 60;
 const MATCH_TIME_SECONDS = 20 * 60;
 const TARGET_SCORE = 50;
 
@@ -13,7 +13,7 @@ const SCORE_REVIVE = 75;
 const SCORE_HILL_PER_SECOND = 10;
 
 const PREVIEW_ICON_ID = 400;
-const PREVIEW_SECONDS = 30; // temporarily longer for playtest; COD-style is ~10
+const PREVIEW_SECONDS = 30;
 const PREVIEW_ICON_HEIGHT = 2;
 
 let team1ScoreTimer = 0;
