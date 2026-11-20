@@ -4,12 +4,12 @@
             "name": "TEAM_1_HQ",
             "unique_id": 728087369,
             "AltTeam": "TeamNeutral",
+            "VehicleSpawnersEnabled": true,
             "ObjId": 1,
             "InfantrySpawns": [
                 "TEAM_1_HQ/SpawnPoint_1_1",
                 "TEAM_1_HQ/SpawnPoint_1_2",
-                "TEAM_1_HQ/SpawnPoint_1_3",
-                "TEAM_1_HQ/SpawnPoint_1_4"
+                "TEAM_1_HQ/SpawnPoint_1_3"
             ],
             "HQArea": "TEAM_1_HQ/HQ_Team1",
             "type": "HQ_PlayerSpawner",
@@ -73,6 +73,58 @@
             "unique_id": 1986751084,
             "type": "SpawnPoint",
             "right": {
+                "x": -0.34693578,
+                "y": 0,
+                "z": 0.9378893
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": -0.9378893,
+                "y": 0,
+                "z": -0.34693578
+            },
+            "position": {
+                "x": 62.725,
+                "y": 63.122,
+                "z": -80.427
+            },
+            "id": "TEAM_1_HQ/SpawnPoint_1_1"
+        },
+        {
+            "name": "SpawnPoint_1_2",
+            "unique_id": 218439877,
+            "type": "SpawnPoint",
+            "right": {
+                "x": -0.98325527,
+                "y": 0,
+                "z": 0.18223564
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": -0.18223564,
+                "y": 0,
+                "z": -0.98325527
+            },
+            "position": {
+                "x": 5.74002,
+                "y": 63.122,
+                "z": -16.288732
+            },
+            "id": "TEAM_1_HQ/SpawnPoint_1_2"
+        },
+        {
+            "name": "SpawnPoint_1_3",
+            "unique_id": 1709018210,
+            "type": "SpawnPoint",
+            "right": {
                 "x": 0.999884,
                 "y": 0,
                 "z": 0.0152535
@@ -88,127 +140,23 @@
                 "z": 0.999884
             },
             "position": {
-                "x": -36.275,
+                "x": -37.8667,
                 "y": 63.122,
-                "z": -75.427
-            },
-            "id": "TEAM_1_HQ/SpawnPoint_1_1"
-        },
-        {
-            "name": "SpawnPoint_1_2",
-            "unique_id": 2011384591,
-            "type": "SpawnPoint",
-            "right": {
-                "x": -0.9995,
-                "y": 0,
-                "z": 0.0316198
-            },
-            "up": {
-                "x": 0,
-                "y": 1,
-                "z": 0
-            },
-            "front": {
-                "x": -0.0316198,
-                "y": 0,
-                "z": -0.9995
-            },
-            "position": {
-                "x": -38.275,
-                "y": 63.122,
-                "z": -106.427
-            },
-            "id": "TEAM_1_HQ/SpawnPoint_1_2"
-        },
-        {
-            "name": "SpawnPoint_1_3",
-            "unique_id": 692379064,
-            "type": "SpawnPoint",
-            "right": {
-                "x": -0.0428871,
-                "y": 0,
-                "z": -0.99908
-            },
-            "up": {
-                "x": 0,
-                "y": 1,
-                "z": 0
-            },
-            "front": {
-                "x": 0.99908,
-                "y": 0,
-                "z": -0.0428871
-            },
-            "position": {
-                "x": -49.275,
-                "y": 63.122,
-                "z": -26.427
+                "z": -107.964588
             },
             "id": "TEAM_1_HQ/SpawnPoint_1_3"
-        },
-        {
-            "name": "SpawnPoint_1_4",
-            "unique_id": 556083800,
-            "type": "SpawnPoint",
-            "right": {
-                "x": 0.0841819,
-                "y": 0,
-                "z": 0.99645
-            },
-            "up": {
-                "x": 0,
-                "y": 1,
-                "z": 0
-            },
-            "front": {
-                "x": -0.99645,
-                "y": 0,
-                "z": 0.0841819
-            },
-            "position": {
-                "x": -45.275,
-                "y": 63.122,
-                "z": 21.573
-            },
-            "id": "TEAM_1_HQ/SpawnPoint_1_4"
-        },
-        {
-            "name": "SpawnPoint_1_5",
-            "unique_id": 1933771038,
-            "type": "SpawnPoint",
-            "right": {
-                "x": 1,
-                "y": 0,
-                "z": 0
-            },
-            "up": {
-                "x": 0,
-                "y": 1,
-                "z": 0
-            },
-            "front": {
-                "x": 0,
-                "y": 0,
-                "z": 1
-            },
-            "position": {
-                "x": -34.275,
-                "y": 63.122,
-                "z": 58.573
-            },
-            "id": "TEAM_1_HQ/SpawnPoint_1_5"
         },
         {
             "name": "TEAM_2_HQ",
             "unique_id": 717981226,
             "Team": "Team2",
             "AltTeam": "TeamNeutral",
+            "VehicleSpawnersEnabled": true,
             "ObjId": 2,
             "InfantrySpawns": [
                 "TEAM_2_HQ/SpawnPoint_2_1",
                 "TEAM_2_HQ/SpawnPoint_2_2",
-                "TEAM_2_HQ/SpawnPoint_2_3",
-                "TEAM_2_HQ/SpawnPoint_2_4"
+                "TEAM_2_HQ/SpawnPoint_2_3"
             ],
             "HQArea": "TEAM_2_HQ/HQ_Team2",
             "type": "HQ_PlayerSpawner",
@@ -272,9 +220,9 @@
             "unique_id": 155248087,
             "type": "SpawnPoint",
             "right": {
-                "x": 0.52677,
+                "x": 0.14312016,
                 "y": 0,
-                "z": 0.28725237
+                "z": -0.582681
             },
             "up": {
                 "x": 0,
@@ -282,25 +230,25 @@
                 "z": 0
             },
             "front": {
-                "x": -0.28725237,
+                "x": 0.582681,
                 "y": 0,
-                "z": 0.52677
+                "z": 0.14312016
             },
             "position": {
-                "x": -109.165824,
+                "x": -245.165816894532,
                 "y": 66.72169544,
-                "z": 112.4427
+                "z": 92.4427032
             },
             "id": "TEAM_2_HQ/SpawnPoint_2_1"
         },
         {
             "name": "SpawnPoint_2_2",
-            "unique_id": 946215358,
+            "unique_id": 1450722841,
             "type": "SpawnPoint",
             "right": {
-                "x": -0.59856237,
+                "x": -0.255467838,
                 "y": 0,
-                "z": -0.041509317
+                "z": 0.54289659
             },
             "up": {
                 "x": 0,
@@ -308,25 +256,25 @@
                 "z": 0
             },
             "front": {
-                "x": 0.041509317,
+                "x": -0.54289659,
                 "y": 0,
-                "z": -0.59856237
+                "z": -0.255467838
             },
             "position": {
-                "x": -111.366,
-                "y": 66.7217,
-                "z": 47.2425
+                "x": -110.6175,
+                "y": 66.72169544,
+                "z": 113.134239
             },
             "id": "TEAM_2_HQ/SpawnPoint_2_2"
         },
         {
             "name": "SpawnPoint_2_3",
-            "unique_id": 2019815279,
+            "unique_id": 868330307,
             "type": "SpawnPoint",
             "right": {
-                "x": 0.09765477,
+                "x": -0.093860784,
                 "y": 0,
-                "z": -0.59199954
+                "z": -0.5926134
             },
             "up": {
                 "x": 0,
@@ -334,68 +282,16 @@
                 "z": 0
             },
             "front": {
-                "x": 0.59199954,
+                "x": 0.5926134,
                 "y": 0,
-                "z": 0.09765477
+                "z": -0.093860784
             },
             "position": {
-                "x": -135.966228,
+                "x": -185.83095,
                 "y": 66.72169544,
-                "z": 11.243124
+                "z": -54.720672
             },
             "id": "TEAM_2_HQ/SpawnPoint_2_3"
-        },
-        {
-            "name": "SpawnPoint_2_4",
-            "unique_id": 1364775862,
-            "type": "SpawnPoint",
-            "right": {
-                "x": -0.099462576,
-                "y": 0,
-                "z": 0.591698244
-            },
-            "up": {
-                "x": 0,
-                "y": 0.599999856,
-                "z": 0
-            },
-            "front": {
-                "x": -0.591698244,
-                "y": 0,
-                "z": -0.099462576
-            },
-            "position": {
-                "x": -119.166072,
-                "y": 66.72169544,
-                "z": -47.957472
-            },
-            "id": "TEAM_2_HQ/SpawnPoint_2_4"
-        },
-        {
-            "name": "SpawnPoint_2_5",
-            "unique_id": 2097414525,
-            "type": "SpawnPoint",
-            "right": {
-                "x": -0.099462576,
-                "y": 0,
-                "z": 0.591698244
-            },
-            "up": {
-                "x": 0,
-                "y": 0.599999856,
-                "z": 0
-            },
-            "front": {
-                "x": -0.591698244,
-                "y": 0,
-                "z": -0.099462576
-            },
-            "position": {
-                "x": -131.16603,
-                "y": 66.72169544,
-                "z": -75.957462
-            },
-            "id": "TEAM_2_HQ/SpawnPoint_2_5"
         },
         {
             "name": "CombatArea",
@@ -651,6 +547,246 @@
                 "z": -30.3798
             },
             "id": "Camera3D/DeployCam"
+        },
+        {
+            "name": "MB_t1_1",
+            "unique_id": 1253809607,
+            "ObjId": 511,
+            "VehicleType": "Quadbike",
+            "P_AutoSpawnEnabled": true,
+            "P_DefaultRespawnTime": 30,
+            "type": "VehicleSpawner",
+            "right": {
+                "x": -0.53582674,
+                "y": 0,
+                "z": 0.844328
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": -0.844328,
+                "y": 0,
+                "z": -0.53582674
+            },
+            "position": {
+                "x": 60,
+                "y": 63,
+                "z": -82
+            },
+            "id": "Vehicle_spawns/MB_t1_1"
+        },
+        {
+            "name": "MB_t1_2",
+            "unique_id": 832070575,
+            "ObjId": 512,
+            "VehicleType": "Quadbike",
+            "P_AutoSpawnEnabled": true,
+            "P_DefaultRespawnTime": 30,
+            "type": "VehicleSpawner",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": 65,
+                "y": 63,
+                "z": -67
+            },
+            "id": "Vehicle_spawns/MB_t1_2"
+        },
+        {
+            "name": "MB_t1_3",
+            "unique_id": 991226078,
+            "ObjId": 513,
+            "VehicleType": "Quadbike",
+            "P_AutoSpawnEnabled": true,
+            "P_DefaultRespawnTime": 30,
+            "type": "VehicleSpawner",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": 67,
+                "y": 63,
+                "z": -64
+            },
+            "id": "Vehicle_spawns/MB_t1_3"
+        },
+        {
+            "name": "MB_t1_4",
+            "unique_id": 504844431,
+            "ObjId": 514,
+            "VehicleType": "Quadbike",
+            "P_AutoSpawnEnabled": true,
+            "P_DefaultRespawnTime": 30,
+            "type": "VehicleSpawner",
+            "right": {
+                "x": -0.6665325,
+                "y": 0,
+                "z": 0.74547595
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": -0.74547595,
+                "y": 0,
+                "z": -0.6665325
+            },
+            "position": {
+                "x": 58,
+                "y": 63,
+                "z": -81
+            },
+            "id": "Vehicle_spawns/MB_t1_4"
+        },
+        {
+            "name": "MB_t2_1",
+            "unique_id": 571975177,
+            "ObjId": 521,
+            "VehicleType": "Quadbike",
+            "P_AutoSpawnEnabled": true,
+            "P_DefaultRespawnTime": 30,
+            "type": "VehicleSpawner",
+            "right": {
+                "x": 0.020942425,
+                "y": 0,
+                "z": -0.99978065
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0.99978065,
+                "y": 0,
+                "z": 0.020942425
+            },
+            "position": {
+                "x": -241,
+                "y": 66.2,
+                "z": 94
+            },
+            "id": "Vehicle_spawns/MB_t2_1"
+        },
+        {
+            "name": "MB_t2_2",
+            "unique_id": 1676725665,
+            "ObjId": 522,
+            "VehicleType": "Quadbike",
+            "P_AutoSpawnEnabled": true,
+            "P_DefaultRespawnTime": 30,
+            "type": "VehicleSpawner",
+            "right": {
+                "x": -0.99744076,
+                "y": 0,
+                "z": -0.07149751
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0.07149751,
+                "y": 0,
+                "z": -0.99744076
+            },
+            "position": {
+                "x": -245,
+                "y": 66.2,
+                "z": 81
+            },
+            "id": "Vehicle_spawns/MB_t2_2"
+        },
+        {
+            "name": "MB_t2_3",
+            "unique_id": 1525247949,
+            "ObjId": 523,
+            "VehicleType": "Quadbike",
+            "P_AutoSpawnEnabled": true,
+            "P_DefaultRespawnTime": 30,
+            "type": "VehicleSpawner",
+            "right": {
+                "x": -0.020942576,
+                "y": 0,
+                "z": -0.99978065
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0.99978065,
+                "y": 0,
+                "z": -0.020942576
+            },
+            "position": {
+                "x": -238,
+                "y": 66.2,
+                "z": 96
+            },
+            "id": "Vehicle_spawns/MB_t2_3"
+        },
+        {
+            "name": "MB_t2_4",
+            "unique_id": 318543959,
+            "ObjId": 524,
+            "VehicleType": "Quadbike",
+            "P_AutoSpawnEnabled": true,
+            "P_DefaultRespawnTime": 30,
+            "type": "VehicleSpawner",
+            "right": {
+                "x": -0.99994516,
+                "y": 0,
+                "z": 0.010471781
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": -0.010471781,
+                "y": 0,
+                "z": -0.99994516
+            },
+            "position": {
+                "x": -242,
+                "y": 66.2,
+                "z": 82
+            },
+            "id": "Vehicle_spawns/MB_t2_4"
         },
         {
             "name": "Sector_200_1",

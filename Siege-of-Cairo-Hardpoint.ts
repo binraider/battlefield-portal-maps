@@ -14,6 +14,7 @@ const SCORE_HILL_PER_SECOND = 10;
 
 const PREVIEW_ICON_ID = 400;
 const PREVIEW_SECONDS = 30;
+const PREVIEW_LINGER_SECONDS = 10;
 const PREVIEW_ICON_HEIGHT = 2;
 
 let team1ScoreTimer = 0;
@@ -35,6 +36,8 @@ let previewIcon: mod.WorldIcon;
 /** Cached upcoming rotating CP index while preview is up; -1 when none. */
 let previewedNextIndex = -1;
 let previewVisible = false;
+/** Hide preview icon at this elapsed second; -1 when not lingering. */
+let previewHideAt = -1;
 
 /** Assist counts keyed by mod.GetObjId(player). Engine has no GetPlayerAssists. */
 const playerAssists: number[] = [];
@@ -45,8 +48,10 @@ const playerScores: number[] = [];
 const cpDistances: number[][] = [];
 /** World positions of rotating CPs (for first handoff from center). */
 const cpPositions: mod.Vector[] = [];
-/** Oldest → newest indices of recently active rotating CPs (max 5). */
-const recentCpIndices: number[] = [];
+/** Oldest → newest indices of recently active rotating CPs (fixed buffer, no push/shift). */
+const RECENT_CP_MAX = 5;
+const recentCpSlots: number[] = [-1, -1, -1, -1, -1];
+let recentCpCount = 0;
 
 export async function OnGameModeStarted() {
 
@@ -108,6 +113,9 @@ export async function OnGameModeStarted() {
         elapsedSeconds++;
 
         updateNextHillPreview();
+        if (previewHideAt >= 0 && elapsedSeconds >= previewHideAt) {
+            hideNextHillPreview();
+        }
 
         if (nextRotateAt >= 0 && elapsedSeconds >= nextRotateAt) {
             nextRotateAt = elapsedSeconds + ROTATE_SECONDS;
@@ -116,7 +124,7 @@ export async function OnGameModeStarted() {
                 const newIndex = previewedNextIndex >= 0
                     ? previewedNextIndex
                     : pickNextCpIndexFromPosition(centerPosition);
-                hideNextHillPreview();
+                lingerNextHillPreview(newIndex);
                 deactivateCenter();
                 centerActive = false;
                 activeCpIndex = newIndex;
@@ -131,7 +139,7 @@ export async function OnGameModeStarted() {
                     hideNextHillPreview();
                     continue;
                 }
-                hideNextHillPreview();
+                lingerNextHillPreview(newIndex);
                 deactivatePair(oldIndex, capturePoints, sectors);
                 await mod.Wait(1);
                 activeCpIndex = newIndex;
@@ -178,6 +186,20 @@ function hideNextHillPreview() {
     mod.EnableWorldIconText(previewIcon, false);
     previewVisible = false;
     previewedNextIndex = -1;
+    previewHideAt = -1;
+}
+
+/** Keep marker lit at the new hill for PREVIEW_LINGER_SECONDS after rotation. */
+function lingerNextHillPreview(index: number) {
+    if (index >= 0 && index < CP_COUNT) {
+        movePreviewIconTo(cpPositions[index]);
+    }
+    previewedNextIndex = -1;
+    previewVisible = true;
+    previewHideAt = elapsedSeconds + PREVIEW_LINGER_SECONDS;
+    mod.SetWorldIconImage(previewIcon, mod.WorldIconImages.Triangle);
+    mod.EnableWorldIconImage(previewIcon, true);
+    mod.EnableWorldIconText(previewIcon, false);
 }
 
 function movePreviewIconTo(position: mod.Vector) {
@@ -407,8 +429,8 @@ function buildCpDistanceMatrix(capturePoints: mod.CapturePoint[]) {
 }
 
 function isRecentCp(index: number): boolean {
-    for (var i = 0; i < recentCpIndices.length; i++) {
-        if (recentCpIndices[i] === index) {
+    for (var i = 0; i < recentCpCount; i++) {
+        if (recentCpSlots[i] === index) {
             return true;
         }
     }
@@ -416,10 +438,15 @@ function isRecentCp(index: number): boolean {
 }
 
 function recordRecentCp(index: number) {
-    recentCpIndices.push(index);
-    while (recentCpIndices.length > 5) {
-        recentCpIndices.shift();
+    if (recentCpCount < RECENT_CP_MAX) {
+        recentCpSlots[recentCpCount] = index;
+        recentCpCount = recentCpCount + 1;
+        return;
     }
+    for (var i = 0; i < RECENT_CP_MAX - 1; i++) {
+        recentCpSlots[i] = recentCpSlots[i + 1];
+    }
+    recentCpSlots[RECENT_CP_MAX - 1] = index;
 }
 
 function collectRotatingCandidates(excludeIndex: number): number[] {
@@ -430,9 +457,18 @@ function collectRotatingCandidates(excludeIndex: number): number[] {
         }
     }
     if (candidates.length === 0) {
-        for (var j = 0; j < CP_COUNT; j++) {
-            if (j !== excludeIndex) {
-                candidates.push(j);
+        // Prefer oldest recent entries first (slots[0] is oldest) over a full reopen.
+        for (var r = 0; r < recentCpCount; r++) {
+            const oldest = recentCpSlots[r];
+            if (oldest !== excludeIndex && oldest >= 0) {
+                candidates.push(oldest);
+            }
+        }
+        if (candidates.length === 0) {
+            for (var j = 0; j < CP_COUNT; j++) {
+                if (j !== excludeIndex) {
+                    candidates.push(j);
+                }
             }
         }
     }
@@ -454,26 +490,29 @@ function sortCandidatesByDistance(
     }
 }
 
-function pickSecondNearest(candidates: number[]): number {
+/** Random pick among the nearest up-to-3 candidates (already sorted by distance). */
+function pickRandomNearest(candidates: number[]): number {
     if (candidates.length === 0) {
         return activeCpIndex >= 0 ? activeCpIndex : 0;
     }
-    if (candidates.length === 1) {
-        return candidates[0];
+    const take = candidates.length < 3 ? candidates.length : 3;
+    let pool = mod.EmptyArray();
+    for (var i = 0; i < take; i++) {
+        pool = mod.AppendToArray(pool, candidates[i]);
     }
-    return candidates[1];
+    return mod.RandomValueInArray(pool) as number;
 }
 
-/** First handoff off the center opener: second-nearest rotating CP to center (not in last five). */
+/** First handoff off the center opener: random among nearest 3 to center (not in last five). */
 function pickNextCpIndexFromPosition(fromPosition: mod.Vector): number {
     const candidates = collectRotatingCandidates(-1);
     sortCandidatesByDistance(candidates, (index) =>
         mod.DistanceBetween(fromPosition, cpPositions[index])
     );
-    return pickSecondNearest(candidates);
+    return pickRandomNearest(candidates);
 }
 
-/** Exclude last-three history; among the rest pick second-nearest to current. */
+/** Exclude last-five history; among the rest pick random of nearest 3 to current. */
 function pickNextCpIndex(): number {
     const candidates = collectRotatingCandidates(activeCpIndex);
 
@@ -487,7 +526,7 @@ function pickNextCpIndex(): number {
         return candidates[0];
     }
     sortCandidatesByDistance(candidates, (index) => row[index]);
-    return pickSecondNearest(candidates);
+    return pickRandomNearest(candidates);
 }
 
 function updateScoreBoardTotal() {
