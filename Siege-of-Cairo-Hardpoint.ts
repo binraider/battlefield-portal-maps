@@ -1,4 +1,4 @@
-const CP_COUNT = 10; // indices 0..9 → CPs 200-209 / sectors 300-309
+const CP_COUNT = 12; // indices 0..11 → CPs 200-211 / sectors 300-311
 const CP_ID_BASE = 200;
 const SECTOR_ID_BASE = 300;
 const CENTER_CP_ID = 250;

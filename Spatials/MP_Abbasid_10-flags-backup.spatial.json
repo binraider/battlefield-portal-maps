@@ -793,7 +793,7 @@
             "unique_id": 1328196590,
             "ObjId": 350,
             "CapturePoints": [
-                "Sector_Center/CapturePoint_205"
+                "Sector_Center/CapturePoint_center"
             ],
             "SectorArea": "CombatArea/CombatVolume",
             "type": "Sector",
@@ -824,10 +824,10 @@
             ]
         },
         {
-            "name": "CapturePoint_205",
+            "name": "CapturePoint_center",
             "unique_id": 1568079316,
             "ObjId": 250,
-            "CaptureArea": "Sector_Center/CapturePoint_205/PolygonVolume",
+            "CaptureArea": "Sector_Center/CapturePoint_center/PolygonVolume",
             "type": "CapturePoint",
             "right": {
                 "x": 1,
@@ -849,7 +849,7 @@
                 "y": 62,
                 "z": -14
             },
-            "id": "Sector_Center/CapturePoint_205",
+            "id": "Sector_Center/CapturePoint_center",
             "linked": [
                 "CaptureArea"
             ]
@@ -865,7 +865,7 @@
                 0.7,
                 0.42
             ],
-            "id": "Sector_Center/CapturePoint_205/PolygonVolume",
+            "id": "Sector_Center/CapturePoint_center/PolygonVolume",
             "height": 5,
             "points": [
                 {
@@ -2590,6 +2590,341 @@
                 "z": -91.275
             },
             "id": "Sector_209_2/CapturePoint_209/SpawnPoint_209"
+        },
+        {
+            "name": "Sector_210_2",
+            "unique_id": 390550265,
+            "ObjId": 310,
+            "CapturePoints": [
+                "Sector_210_2/CapturePoint_210"
+            ],
+            "SectorArea": "Sector_210_2/PolygonVolume_210_2",
+            "type": "Sector",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": -116,
+                "y": 0,
+                "z": -7
+            },
+            "id": "Sector_210_2",
+            "linked": [
+                "SectorArea",
+                "CapturePoints"
+            ]
+        },
+        {
+            "name": "PolygonVolume_210_2",
+            "unique_id": 1602420428,
+            "type": "PolygonVolume",
+            "id": "Sector_210_2/PolygonVolume_210_2",
+            "height": 0,
+            "points": [
+                {
+                    "x": -129.279114,
+                    "y": 0,
+                    "z": -25.676985
+                },
+                {
+                    "x": -130.505127,
+                    "y": 0,
+                    "z": 4.639
+                },
+                {
+                    "x": -105.316109,
+                    "y": 0,
+                    "z": 4.527544
+                },
+                {
+                    "x": -102.752617,
+                    "y": 0,
+                    "z": -25.008251
+                }
+            ]
+        },
+        {
+            "name": "CapturePoint_210",
+            "unique_id": 146032053,
+            "ObjId": 210,
+            "InfantrySpawnPoints_Team1": [
+                "Sector_210_2/CapturePoint_210/SpawnPoint_210"
+            ],
+            "InfantrySpawnPoints_Team2": [
+                "Sector_210_2/CapturePoint_210/SpawnPoint_210"
+            ],
+            "CaptureArea": "Sector_210_2/CapturePoint_210/PolygonVolume_210",
+            "type": "CapturePoint",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": -116,
+                "y": 62,
+                "z": -7
+            },
+            "id": "Sector_210_2/CapturePoint_210",
+            "linked": [
+                "CaptureArea",
+                "InfantrySpawnPoints_Team1",
+                "InfantrySpawnPoints_Team2"
+            ]
+        },
+        {
+            "name": "PolygonVolume_210",
+            "type": "PolygonVolume",
+            "unique_id": 1496630481,
+            "metadata/_custom_type_script": "uid://ck5uniw0pl6u8",
+            "color": [
+                0,
+                0.6,
+                0.7,
+                0.42
+            ],
+            "id": "Sector_210_2/CapturePoint_210/PolygonVolume_210",
+            "height": 5,
+            "points": [
+                {
+                    "x": -127.830177,
+                    "y": 62,
+                    "z": -18.878405
+                },
+                {
+                    "x": -126.604164,
+                    "y": 62,
+                    "z": 0.5149107
+                },
+                {
+                    "x": -108.8826904,
+                    "y": 62,
+                    "z": 0.291999
+                },
+                {
+                    "x": -108.5483246,
+                    "y": 62,
+                    "z": -19.101316
+                }
+            ]
+        },
+        {
+            "name": "SpawnPoint_210",
+            "type": "SpawnPoint",
+            "unique_id": 2023023567,
+            "ObjId": 2101,
+            "metadata/_custom_type_script": "uid://jyjbwdgcb7hw",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": -111,
+                "y": 64,
+                "z": -20
+            },
+            "id": "Sector_210_2/CapturePoint_210/SpawnPoint_210"
+        },
+        {
+            "name": "Sector_211_1",
+            "unique_id": 1104317353,
+            "ObjId": 311,
+            "AutoEnableVehicles": false,
+            "CapturePoints": [
+                "Sector_211_1/CapturePoint_211"
+            ],
+            "SectorArea": "Sector_211_1/PolygonVolume_211_1",
+            "type": "Sector",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": -39,
+                "y": 0,
+                "z": -41
+            },
+            "id": "Sector_211_1",
+            "linked": [
+                "SectorArea",
+                "CapturePoints"
+            ]
+        },
+        {
+            "name": "PolygonVolume_211_1",
+            "unique_id": 2030526922,
+            "type": "PolygonVolume",
+            "id": "Sector_211_1/PolygonVolume_211_1",
+            "height": 0,
+            "points": [
+                {
+                    "x": -52.220242,
+                    "y": 0,
+                    "z": -58.193344
+                },
+                {
+                    "x": -51.217133,
+                    "y": 0,
+                    "z": -26.762764
+                },
+                {
+                    "x": -21.012577,
+                    "y": 0,
+                    "z": -25.648205
+                },
+                {
+                    "x": -20.566753,
+                    "y": 0,
+                    "z": -56.410049
+                }
+            ]
+        },
+        {
+            "name": "CapturePoint_211",
+            "unique_id": 606299523,
+            "ObjId": 211,
+            "InfantrySpawnPoints_Team1": [
+                "Sector_211_1/CapturePoint_211/SpawnPoint_211"
+            ],
+            "InfantrySpawnPoints_Team2": [
+                "Sector_211_1/CapturePoint_211/SpawnPoint_211"
+            ],
+            "CaptureArea": "Sector_211_1/CapturePoint_211/PolygonVolume_211",
+            "type": "CapturePoint",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": -39,
+                "y": 60,
+                "z": -41
+            },
+            "id": "Sector_211_1/CapturePoint_211",
+            "linked": [
+                "CaptureArea",
+                "InfantrySpawnPoints_Team1",
+                "InfantrySpawnPoints_Team2"
+            ]
+        },
+        {
+            "name": "PolygonVolume_211",
+            "type": "PolygonVolume",
+            "unique_id": 1125477742,
+            "metadata/_custom_type_script": "uid://ck5uniw0pl6u8",
+            "color": [
+                0,
+                0.6,
+                0.7,
+                0.42
+            ],
+            "id": "Sector_211_1/CapturePoint_211/PolygonVolume_211",
+            "height": 5,
+            "points": [
+                {
+                    "x": -50.102573,
+                    "y": 60,
+                    "z": -52.06348
+                },
+                {
+                    "x": -50.214027,
+                    "y": 60,
+                    "z": -28.9921
+                },
+                {
+                    "x": -23.353146,
+                    "y": 60,
+                    "z": -29.3264675
+                },
+                {
+                    "x": -23.910427,
+                    "y": 60,
+                    "z": -52.286396
+                }
+            ]
+        },
+        {
+            "name": "SpawnPoint_211",
+            "type": "SpawnPoint",
+            "unique_id": 954093990,
+            "ObjId": 2111,
+            "metadata/_custom_type_script": "uid://jyjbwdgcb7hw",
+            "right": {
+                "x": 0.13744435,
+                "y": 0,
+                "z": -0.9905095
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0.9905095,
+                "y": 0,
+                "z": 0.13744435
+            },
+            "position": {
+                "x": -48.688419,
+                "y": 62,
+                "z": -55.457788
+            },
+            "id": "Sector_211_1/CapturePoint_211/SpawnPoint_211"
         },
         {
             "name": "WorldIcon",

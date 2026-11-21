@@ -142,14 +142,14 @@ P_DefaultRespawnTime = 30
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -14)
 ObjId = 350
 SectorArea = NodePath("../CombatArea/CombatVolume")
-CapturePoints = [NodePath("CapturePoint_205")]
+CapturePoints = [NodePath("CapturePoint_center")]
 
-[node name="CapturePoint_205" parent="Sector_Center" unique_id=1568079316 node_paths=PackedStringArray("CaptureArea") instance=ExtResource("8_t8tnv")]
+[node name="CapturePoint_center" parent="Sector_Center" unique_id=1568079316 node_paths=PackedStringArray("CaptureArea") instance=ExtResource("8_t8tnv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 62, 0)
 ObjId = 250
 CaptureArea = NodePath("PolygonVolume")
 
-[node name="PolygonVolume" type="Node3D" parent="Sector_Center/CapturePoint_205" unique_id=955875067]
+[node name="PolygonVolume" type="Node3D" parent="Sector_Center/CapturePoint_center" unique_id=955875067]
 script = ExtResource("9_w5fug")
 points = PackedVector2Array(-14.017166, -3.4970112, -13.771393, 15.673039, 6.9552, 13.870725, 6.545578, -6.5281715)
 height = 5.0
@@ -451,6 +451,65 @@ metadata/_custom_type_script = "uid://ck5uniw0pl6u8"
 transform = Transform3D(0.9477684, 0, 0.31895933, 0, 1, 0, -0.31895933, 0, 0.9477684, -0.203, 2, -16.275)
 script = ExtResource("12_0wwjx")
 ObjId = 2091
+metadata/_custom_type_script = "uid://jyjbwdgcb7hw"
+
+[node name="Sector_210_2" parent="." unique_id=390550265 node_paths=PackedStringArray("SectorArea", "CapturePoints") instance=ExtResource("10_abo5i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116, 0, -7)
+ObjId = 310
+SectorArea = NodePath("PolygonVolume_210_2")
+CapturePoints = [NodePath("CapturePoint_210")]
+
+[node name="PolygonVolume_210_2" parent="Sector_210_2" unique_id=1602420428 instance=ExtResource("2_x0lkc")]
+points = PackedVector2Array(-13.279114, -18.676985, -14.505127, 11.639, 10.683891, 11.527544, 13.247383, -18.008251)
+
+[node name="CapturePoint_210" parent="Sector_210_2" unique_id=146032053 node_paths=PackedStringArray("CaptureArea", "InfantrySpawnPoints_Team1", "InfantrySpawnPoints_Team2") instance=ExtResource("8_t8tnv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 62, 0)
+ObjId = 210
+CaptureArea = NodePath("PolygonVolume_210")
+InfantrySpawnPoints_Team1 = [NodePath("SpawnPoint_210")]
+InfantrySpawnPoints_Team2 = [NodePath("SpawnPoint_210")]
+
+[node name="PolygonVolume_210" type="Node3D" parent="Sector_210_2/CapturePoint_210" unique_id=1496630481]
+script = ExtResource("9_w5fug")
+points = PackedVector2Array(-11.830177, -11.878405, -10.604164, 7.5149107, 7.1173096, 7.291999, 7.4516754, -12.101316)
+height = 5.0
+color = Color(0, 0.6, 0.7, 0.42)
+metadata/_custom_type_script = "uid://ck5uniw0pl6u8"
+
+[node name="SpawnPoint_210" type="Node3D" parent="Sector_210_2/CapturePoint_210" unique_id=2023023567]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, -13)
+script = ExtResource("12_0wwjx")
+ObjId = 2101
+metadata/_custom_type_script = "uid://jyjbwdgcb7hw"
+
+[node name="Sector_211_1" parent="." unique_id=1104317353 node_paths=PackedStringArray("SectorArea", "CapturePoints") instance=ExtResource("10_abo5i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 0, -41)
+ObjId = 311
+AutoEnableVehicles = false
+SectorArea = NodePath("PolygonVolume_211_1")
+CapturePoints = [NodePath("CapturePoint_211")]
+
+[node name="PolygonVolume_211_1" parent="Sector_211_1" unique_id=2030526922 instance=ExtResource("2_x0lkc")]
+points = PackedVector2Array(-13.220242, -17.193344, -12.217133, 14.237236, 17.987423, 15.351795, 18.433247, -15.410049)
+
+[node name="CapturePoint_211" parent="Sector_211_1" unique_id=606299523 node_paths=PackedStringArray("CaptureArea", "InfantrySpawnPoints_Team1", "InfantrySpawnPoints_Team2") instance=ExtResource("8_t8tnv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 60, 0)
+ObjId = 211
+CaptureArea = NodePath("PolygonVolume_211")
+InfantrySpawnPoints_Team1 = [NodePath("SpawnPoint_211")]
+InfantrySpawnPoints_Team2 = [NodePath("SpawnPoint_211")]
+
+[node name="PolygonVolume_211" type="Node3D" parent="Sector_211_1/CapturePoint_211" unique_id=1125477742]
+script = ExtResource("9_w5fug")
+points = PackedVector2Array(-11.102573, -11.06348, -11.214027, 12.0079, 15.646854, 11.6735325, 15.089573, -11.286396)
+height = 5.0
+color = Color(0, 0.6, 0.7, 0.42)
+metadata/_custom_type_script = "uid://ck5uniw0pl6u8"
+
+[node name="SpawnPoint_211" type="Node3D" parent="Sector_211_1/CapturePoint_211" unique_id=954093990]
+transform = Transform3D(0.13744435, 0, 0.9905095, 0, 1, 0, -0.9905095, 0, 0.13744435, -9.688419, 2, -14.457788)
+script = ExtResource("12_0wwjx")
+ObjId = 2111
 metadata/_custom_type_script = "uid://jyjbwdgcb7hw"
 
 [node name="WorldIcon" parent="." unique_id=606116497 instance=ExtResource("11_x0lkc")]
