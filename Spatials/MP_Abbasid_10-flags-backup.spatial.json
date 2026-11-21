@@ -789,793 +789,6 @@
             "id": "Vehicle_spawns/MB_t2_4"
         },
         {
-            "name": "Sector_200_1",
-            "unique_id": 2036017170,
-            "ObjId": 300,
-            "AutoEnableVehicles": false,
-            "CapturePoints": [
-                "Sector_200_1/CapturePoint_200"
-            ],
-            "SectorArea": "CombatArea/CombatVolume",
-            "type": "Sector",
-            "right": {
-                "x": 1,
-                "y": 0,
-                "z": 0
-            },
-            "up": {
-                "x": 0,
-                "y": 1,
-                "z": 0
-            },
-            "front": {
-                "x": 0,
-                "y": 0,
-                "z": 1
-            },
-            "position": {
-                "x": -50,
-                "y": 0,
-                "z": 57
-            },
-            "id": "Sector_200_1",
-            "linked": [
-                "SectorArea",
-                "CapturePoints"
-            ]
-        },
-        {
-            "name": "PolygonVolume",
-            "unique_id": 995608863,
-            "type": "PolygonVolume",
-            "id": "Sector_200_1/PolygonVolume",
-            "height": 0,
-            "points": [
-                {
-                    "x": -69.425713,
-                    "y": 0,
-                    "z": 38.324738
-                },
-                {
-                    "x": -69.507912,
-                    "y": 0,
-                    "z": 70.176147
-                },
-                {
-                    "x": -20.518383,
-                    "y": 0,
-                    "z": 72.8064575
-                },
-                {
-                    "x": -20.353989,
-                    "y": 0,
-                    "z": 38.406937
-                }
-            ]
-        },
-        {
-            "name": "CapturePoint_200",
-            "unique_id": 365965987,
-            "ObjId": 200,
-            "CaptureArea": "Sector_200_1/CapturePoint_200/PolygonVolume",
-            "type": "CapturePoint",
-            "right": {
-                "x": 1,
-                "y": 0,
-                "z": 0
-            },
-            "up": {
-                "x": 0,
-                "y": 1,
-                "z": 0
-            },
-            "front": {
-                "x": 0,
-                "y": 0,
-                "z": 1
-            },
-            "position": {
-                "x": -50,
-                "y": 60,
-                "z": 57
-            },
-            "id": "Sector_200_1/CapturePoint_200",
-            "linked": [
-                "CaptureArea"
-            ]
-        },
-        {
-            "name": "PolygonVolume",
-            "type": "PolygonVolume",
-            "unique_id": 397266181,
-            "metadata/_custom_type_script": "uid://ck5uniw0pl6u8",
-            "color": [
-                0,
-                0.6,
-                0.7,
-                0.42
-            ],
-            "id": "Sector_200_1/CapturePoint_200/PolygonVolume",
-            "height": 5,
-            "points": [
-                {
-                    "x": -55.7651176,
-                    "y": 60,
-                    "z": 50.773361
-                },
-                {
-                    "x": -56.2868614,
-                    "y": 60,
-                    "z": 63.8169556
-                },
-                {
-                    "x": -41.351948,
-                    "y": 60,
-                    "z": 62.708248
-                },
-                {
-                    "x": -42.5258713,
-                    "y": 60,
-                    "z": 50.7081413
-                }
-            ]
-        },
-        {
-            "name": "Sector_201_2",
-            "unique_id": 995463776,
-            "ObjId": 301,
-            "CapturePoints": [
-                "Sector_201_2/CapturePoint_201"
-            ],
-            "SectorArea": "CombatArea/CombatVolume",
-            "type": "Sector",
-            "right": {
-                "x": 1,
-                "y": 0,
-                "z": 0
-            },
-            "up": {
-                "x": 0,
-                "y": 1,
-                "z": 0
-            },
-            "front": {
-                "x": 0,
-                "y": 0,
-                "z": 1
-            },
-            "position": {
-                "x": -174,
-                "y": 0,
-                "z": -27
-            },
-            "id": "Sector_201_2",
-            "linked": [
-                "SectorArea",
-                "CapturePoints"
-            ]
-        },
-        {
-            "name": "PolygonVolume",
-            "unique_id": 1388396978,
-            "type": "PolygonVolume",
-            "id": "Sector_201_2/PolygonVolume",
-            "height": 0,
-            "points": [
-                {
-                    "x": -186.892792,
-                    "y": 0,
-                    "z": -37.909225
-                },
-                {
-                    "x": -187.602631,
-                    "y": 0,
-                    "z": -16.082027
-                },
-                {
-                    "x": -165.331787,
-                    "y": 0,
-                    "z": -15.549655
-                },
-                {
-                    "x": -165.065598,
-                    "y": 0,
-                    "z": -37.909225
-                }
-            ]
-        },
-        {
-            "name": "CapturePoint_201",
-            "unique_id": 89198165,
-            "ObjId": 201,
-            "CaptureArea": "Sector_201_2/CapturePoint_201/PolygonVolume",
-            "type": "CapturePoint",
-            "right": {
-                "x": 1,
-                "y": 0,
-                "z": 0
-            },
-            "up": {
-                "x": 0,
-                "y": 1,
-                "z": 0
-            },
-            "front": {
-                "x": 0,
-                "y": 0,
-                "z": 1
-            },
-            "position": {
-                "x": -174,
-                "y": 62,
-                "z": -27
-            },
-            "id": "Sector_201_2/CapturePoint_201",
-            "linked": [
-                "CaptureArea"
-            ]
-        },
-        {
-            "name": "PolygonVolume",
-            "type": "PolygonVolume",
-            "unique_id": 332417678,
-            "metadata/_custom_type_script": "uid://ck5uniw0pl6u8",
-            "color": [
-                0,
-                0.6,
-                0.7,
-                0.42
-            ],
-            "id": "Sector_201_2/CapturePoint_201/PolygonVolume",
-            "height": 5,
-            "points": [
-                {
-                    "x": -180.5930786,
-                    "y": 62,
-                    "z": -34.005398
-                },
-                {
-                    "x": -181.0367126,
-                    "y": 62,
-                    "z": -20.8735886
-                },
-                {
-                    "x": -168.9696503,
-                    "y": 62,
-                    "z": -20.6961308
-                },
-                {
-                    "x": -168.8809204,
-                    "y": 62,
-                    "z": -34.1828537
-                }
-            ]
-        },
-        {
-            "name": "Sector_202_2",
-            "unique_id": 566358110,
-            "ObjId": 302,
-            "CapturePoints": [
-                "Sector_202_2/CapturePoint_202"
-            ],
-            "SectorArea": "CombatArea/CombatVolume",
-            "type": "Sector",
-            "right": {
-                "x": 1,
-                "y": 0,
-                "z": 0
-            },
-            "up": {
-                "x": 0,
-                "y": 1,
-                "z": 0
-            },
-            "front": {
-                "x": 0,
-                "y": 0,
-                "z": 1
-            },
-            "position": {
-                "x": -169,
-                "y": 0,
-                "z": 117
-            },
-            "id": "Sector_202_2",
-            "linked": [
-                "SectorArea",
-                "CapturePoints"
-            ]
-        },
-        {
-            "name": "CapturePoint_202",
-            "unique_id": 1570600686,
-            "ObjId": 202,
-            "CaptureArea": "Sector_202_2/CapturePoint_202/PolygonVolume",
-            "type": "CapturePoint",
-            "right": {
-                "x": 1,
-                "y": 0,
-                "z": 0
-            },
-            "up": {
-                "x": 0,
-                "y": 1,
-                "z": 0
-            },
-            "front": {
-                "x": 0,
-                "y": 0,
-                "z": 1
-            },
-            "position": {
-                "x": -169,
-                "y": 61,
-                "z": 117
-            },
-            "id": "Sector_202_2/CapturePoint_202",
-            "linked": [
-                "CaptureArea"
-            ]
-        },
-        {
-            "name": "PolygonVolume",
-            "type": "PolygonVolume",
-            "unique_id": 299687253,
-            "metadata/_custom_type_script": "uid://ck5uniw0pl6u8",
-            "color": [
-                0,
-                0.6,
-                0.7,
-                0.42
-            ],
-            "id": "Sector_202_2/CapturePoint_202/PolygonVolume",
-            "height": 5,
-            "points": [
-                {
-                    "x": -181.31723,
-                    "y": 61,
-                    "z": 111.2943497
-                },
-                {
-                    "x": -181.41037,
-                    "y": 61,
-                    "z": 123.0310745
-                },
-                {
-                    "x": -156.431824,
-                    "y": 61,
-                    "z": 122.704979
-                },
-                {
-                    "x": -156.49704,
-                    "y": 61,
-                    "z": 111.6179047
-                }
-            ]
-        },
-        {
-            "name": "PolygonVolume",
-            "unique_id": 163796925,
-            "type": "PolygonVolume",
-            "id": "Sector_202_2/PolygonVolume",
-            "height": 0,
-            "points": [
-                {
-                    "x": -186.562592,
-                    "y": 0,
-                    "z": 108.683304
-                },
-                {
-                    "x": -186.17128,
-                    "y": 0,
-                    "z": 125.183495
-                },
-                {
-                    "x": -152.583954,
-                    "y": 0,
-                    "z": 124.792183
-                },
-                {
-                    "x": -153.170914,
-                    "y": 0,
-                    "z": 108.618088
-                }
-            ]
-        },
-        {
-            "name": "Sector_203_2",
-            "unique_id": 603346453,
-            "ObjId": 303,
-            "CapturePoints": [
-                "Sector_203_2/CapturePoint_203"
-            ],
-            "SectorArea": "CombatArea/CombatVolume",
-            "type": "Sector",
-            "right": {
-                "x": 1,
-                "y": 0,
-                "z": 0
-            },
-            "up": {
-                "x": 0,
-                "y": 1,
-                "z": 0
-            },
-            "front": {
-                "x": 0,
-                "y": 0,
-                "z": 1
-            },
-            "position": {
-                "x": -176,
-                "y": 0,
-                "z": 54
-            },
-            "id": "Sector_203_2",
-            "linked": [
-                "SectorArea",
-                "CapturePoints"
-            ]
-        },
-        {
-            "name": "CapturePoint_203",
-            "unique_id": 1992040631,
-            "ObjId": 203,
-            "CaptureArea": "Sector_203_2/CapturePoint_203/PolygonVolume",
-            "type": "CapturePoint",
-            "right": {
-                "x": 1,
-                "y": 0,
-                "z": 0
-            },
-            "up": {
-                "x": 0,
-                "y": 1,
-                "z": 0
-            },
-            "front": {
-                "x": 0,
-                "y": 0,
-                "z": 1
-            },
-            "position": {
-                "x": -176,
-                "y": 62,
-                "z": 54
-            },
-            "id": "Sector_203_2/CapturePoint_203",
-            "linked": [
-                "CaptureArea"
-            ]
-        },
-        {
-            "name": "PolygonVolume",
-            "type": "PolygonVolume",
-            "unique_id": 1197027460,
-            "metadata/_custom_type_script": "uid://ck5uniw0pl6u8",
-            "color": [
-                0,
-                0.6,
-                0.7,
-                0.42
-            ],
-            "id": "Sector_203_2/CapturePoint_203/PolygonVolume",
-            "height": 5,
-            "points": [
-                {
-                    "x": -182.6909637,
-                    "y": 62,
-                    "z": 45.351936
-                },
-                {
-                    "x": -181.966522,
-                    "y": 62,
-                    "z": 63.6702
-                },
-                {
-                    "x": -169.443878,
-                    "y": 62,
-                    "z": 63.6702
-                },
-                {
-                    "x": -169.6508484,
-                    "y": 62,
-                    "z": 45.662418
-                }
-            ]
-        },
-        {
-            "name": "PolygonVolume",
-            "unique_id": 1190391176,
-            "type": "PolygonVolume",
-            "id": "Sector_203_2/PolygonVolume",
-            "height": 0,
-            "points": [
-                {
-                    "x": -186.209732,
-                    "y": 0,
-                    "z": 43.075317
-                },
-                {
-                    "x": -186.623703,
-                    "y": 0,
-                    "z": 68.8450775
-                },
-                {
-                    "x": -164.062225,
-                    "y": 0,
-                    "z": 68.017128
-                },
-                {
-                    "x": -165.92511,
-                    "y": 0,
-                    "z": 43.17881
-                }
-            ]
-        },
-        {
-            "name": "Sector_204_1",
-            "unique_id": 1373968962,
-            "ObjId": 304,
-            "CapturePoints": [
-                "Sector_204_1/CapturePoint_204"
-            ],
-            "SectorArea": "CombatArea/CombatVolume",
-            "type": "Sector",
-            "right": {
-                "x": 1,
-                "y": 0,
-                "z": 0
-            },
-            "up": {
-                "x": 0,
-                "y": 1,
-                "z": 0
-            },
-            "front": {
-                "x": 0,
-                "y": 0,
-                "z": 1
-            },
-            "position": {
-                "x": -18,
-                "y": 0,
-                "z": -78
-            },
-            "id": "Sector_204_1",
-            "linked": [
-                "SectorArea",
-                "CapturePoints"
-            ]
-        },
-        {
-            "name": "CapturePoint_204",
-            "unique_id": 714091806,
-            "ObjId": 204,
-            "CaptureArea": "Sector_204_1/CapturePoint_204/PolygonVolume",
-            "type": "CapturePoint",
-            "right": {
-                "x": 1,
-                "y": 0,
-                "z": 0
-            },
-            "up": {
-                "x": 0,
-                "y": 1,
-                "z": 0
-            },
-            "front": {
-                "x": 0,
-                "y": 0,
-                "z": 1
-            },
-            "position": {
-                "x": -18,
-                "y": 63.14788,
-                "z": -78
-            },
-            "id": "Sector_204_1/CapturePoint_204",
-            "linked": [
-                "CaptureArea"
-            ]
-        },
-        {
-            "name": "PolygonVolume",
-            "type": "PolygonVolume",
-            "unique_id": 581910334,
-            "metadata/_custom_type_script": "uid://ck5uniw0pl6u8",
-            "color": [
-                0,
-                0.6,
-                0.7,
-                0.42
-            ],
-            "id": "Sector_204_1/CapturePoint_204/PolygonVolume",
-            "height": 5,
-            "points": [
-                {
-                    "x": -20.5316467,
-                    "y": 63.14788,
-                    "z": -81.9691772
-                },
-                {
-                    "x": -20.1481476,
-                    "y": 63.14788,
-                    "z": -74.203331
-                },
-                {
-                    "x": -11.279751,
-                    "y": 63.14788,
-                    "z": -74.2992096
-                },
-                {
-                    "x": -11.4714966,
-                    "y": 63.14788,
-                    "z": -82.1129837
-                }
-            ]
-        },
-        {
-            "name": "PolygonVolume",
-            "unique_id": 1782505117,
-            "type": "PolygonVolume",
-            "id": "Sector_204_1/PolygonVolume",
-            "height": 0,
-            "points": [
-                {
-                    "x": -22.257389,
-                    "y": 0,
-                    "z": -83.838501
-                },
-                {
-                    "x": -22.0656395,
-                    "y": 0,
-                    "z": -70.8954315
-                },
-                {
-                    "x": -8.067947,
-                    "y": 0,
-                    "z": -71.039238
-                },
-                {
-                    "x": -8.020012,
-                    "y": 0,
-                    "z": -83.215317
-                }
-            ]
-        },
-        {
-            "name": "Sector_205_1",
-            "unique_id": 392685428,
-            "ObjId": 305,
-            "CapturePoints": [
-                "Sector_205_1/CapturePoint_205"
-            ],
-            "SectorArea": "CombatArea/CombatVolume",
-            "type": "Sector",
-            "right": {
-                "x": 1,
-                "y": 0,
-                "z": 0
-            },
-            "up": {
-                "x": 0,
-                "y": 1,
-                "z": 0
-            },
-            "front": {
-                "x": 0,
-                "y": 0,
-                "z": 1
-            },
-            "position": {
-                "x": -7,
-                "y": 0,
-                "z": 7
-            },
-            "id": "Sector_205_1",
-            "linked": [
-                "SectorArea",
-                "CapturePoints"
-            ]
-        },
-        {
-            "name": "CapturePoint_205",
-            "unique_id": 690901067,
-            "ObjId": 205,
-            "CaptureArea": "Sector_205_1/CapturePoint_205/PolygonVolume",
-            "type": "CapturePoint",
-            "right": {
-                "x": 1,
-                "y": 0,
-                "z": 0
-            },
-            "up": {
-                "x": 0,
-                "y": 1,
-                "z": 0
-            },
-            "front": {
-                "x": 0,
-                "y": 0,
-                "z": 1
-            },
-            "position": {
-                "x": -7,
-                "y": 62,
-                "z": 7
-            },
-            "id": "Sector_205_1/CapturePoint_205",
-            "linked": [
-                "CaptureArea"
-            ]
-        },
-        {
-            "name": "PolygonVolume",
-            "type": "PolygonVolume",
-            "unique_id": 496704634,
-            "metadata/_custom_type_script": "uid://ck5uniw0pl6u8",
-            "color": [
-                0,
-                0.6,
-                0.7,
-                0.42
-            ],
-            "id": "Sector_205_1/CapturePoint_205/PolygonVolume",
-            "height": 5,
-            "points": [
-                {
-                    "x": -14.4203205,
-                    "y": 62,
-                    "z": 1.011523
-                },
-                {
-                    "x": -14.0063496,
-                    "y": 62,
-                    "z": 12.188773
-                },
-                {
-                    "x": -1.4836903,
-                    "y": 62,
-                    "z": 12.292267
-                },
-                {
-                    "x": -2.1046467,
-                    "y": 62,
-                    "z": 0.90803
-                }
-            ]
-        },
-        {
-            "name": "PolygonVolume",
-            "unique_id": 713769997,
-            "type": "PolygonVolume",
-            "id": "Sector_205_1/PolygonVolume",
-            "height": 0,
-            "points": [
-                {
-                    "x": -17.421621,
-                    "y": 0,
-                    "z": -1.058113
-                },
-                {
-                    "x": -15.765734,
-                    "y": 0,
-                    "z": 15.293788
-                },
-                {
-                    "x": 4.829382,
-                    "y": 0,
-                    "z": 15.397282
-                },
-                {
-                    "x": 3.380476,
-                    "y": 0,
-                    "z": -2.507015
-                }
-            ]
-        },
-        {
             "name": "Sector_Center",
             "unique_id": 1328196590,
             "ObjId": 350,
@@ -1707,14 +920,1017 @@
             ]
         },
         {
+            "name": "Sector_200_1",
+            "unique_id": 2036017170,
+            "ObjId": 300,
+            "AutoEnableVehicles": false,
+            "CapturePoints": [
+                "Sector_200_1/CapturePoint_200"
+            ],
+            "SectorArea": "Sector_200_1/PolygonVolume_200_1",
+            "type": "Sector",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": -50,
+                "y": 0,
+                "z": 57
+            },
+            "id": "Sector_200_1",
+            "linked": [
+                "SectorArea",
+                "CapturePoints"
+            ]
+        },
+        {
+            "name": "PolygonVolume_200_1",
+            "unique_id": 995608863,
+            "type": "PolygonVolume",
+            "id": "Sector_200_1/PolygonVolume_200_1",
+            "height": 0,
+            "points": [
+                {
+                    "x": -69.425713,
+                    "y": 0,
+                    "z": 38.324738
+                },
+                {
+                    "x": -69.507912,
+                    "y": 0,
+                    "z": 70.176147
+                },
+                {
+                    "x": -20.518383,
+                    "y": 0,
+                    "z": 72.8064575
+                },
+                {
+                    "x": -20.353989,
+                    "y": 0,
+                    "z": 38.406937
+                }
+            ]
+        },
+        {
+            "name": "CapturePoint_200",
+            "unique_id": 365965987,
+            "ObjId": 200,
+            "InfantrySpawnPoints_Team1": [
+                "Sector_200_1/CapturePoint_200/SpawnPoint_200"
+            ],
+            "InfantrySpawnPoints_Team2": [
+                "Sector_200_1/CapturePoint_200/SpawnPoint_200"
+            ],
+            "CaptureArea": "Sector_200_1/CapturePoint_200/PolygonVolume_200",
+            "type": "CapturePoint",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": -50,
+                "y": 60,
+                "z": 57
+            },
+            "id": "Sector_200_1/CapturePoint_200",
+            "linked": [
+                "CaptureArea",
+                "InfantrySpawnPoints_Team1",
+                "InfantrySpawnPoints_Team2"
+            ]
+        },
+        {
+            "name": "PolygonVolume_200",
+            "type": "PolygonVolume",
+            "unique_id": 397266181,
+            "metadata/_custom_type_script": "uid://ck5uniw0pl6u8",
+            "color": [
+                0,
+                0.6,
+                0.7,
+                0.42
+            ],
+            "id": "Sector_200_1/CapturePoint_200/PolygonVolume_200",
+            "height": 5,
+            "points": [
+                {
+                    "x": -55.7651176,
+                    "y": 60,
+                    "z": 50.773361
+                },
+                {
+                    "x": -56.2868614,
+                    "y": 60,
+                    "z": 63.8169556
+                },
+                {
+                    "x": -41.351948,
+                    "y": 60,
+                    "z": 62.708248
+                },
+                {
+                    "x": -42.5258713,
+                    "y": 60,
+                    "z": 50.7081413
+                }
+            ]
+        },
+        {
+            "name": "SpawnPoint_200",
+            "type": "SpawnPoint",
+            "unique_id": 1400965932,
+            "ObjId": 2001,
+            "metadata/_custom_type_script": "uid://jyjbwdgcb7hw",
+            "right": {
+                "x": -0.0191974,
+                "y": 0,
+                "z": 0.9998157
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": -0.9998157,
+                "y": 0,
+                "z": -0.0191974
+            },
+            "position": {
+                "x": -36,
+                "y": 62,
+                "z": 59
+            },
+            "id": "Sector_200_1/CapturePoint_200/SpawnPoint_200"
+        },
+        {
+            "name": "Sector_201_2",
+            "unique_id": 995463776,
+            "ObjId": 301,
+            "CapturePoints": [
+                "Sector_201_2/CapturePoint_201"
+            ],
+            "SectorArea": "Sector_201_2/PolygonVolume_201_2",
+            "type": "Sector",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": -174,
+                "y": 0,
+                "z": -27
+            },
+            "id": "Sector_201_2",
+            "linked": [
+                "SectorArea",
+                "CapturePoints"
+            ]
+        },
+        {
+            "name": "PolygonVolume_201_2",
+            "unique_id": 1388396978,
+            "type": "PolygonVolume",
+            "id": "Sector_201_2/PolygonVolume_201_2",
+            "height": 0,
+            "points": [
+                {
+                    "x": -186.892792,
+                    "y": 0,
+                    "z": -37.909225
+                },
+                {
+                    "x": -187.602631,
+                    "y": 0,
+                    "z": -16.082027
+                },
+                {
+                    "x": -165.331787,
+                    "y": 0,
+                    "z": -15.549655
+                },
+                {
+                    "x": -165.065598,
+                    "y": 0,
+                    "z": -37.909225
+                }
+            ]
+        },
+        {
+            "name": "CapturePoint_201",
+            "unique_id": 89198165,
+            "ObjId": 201,
+            "InfantrySpawnPoints_Team1": [
+                "Sector_201_2/CapturePoint_201/SpawnPoint_201"
+            ],
+            "InfantrySpawnPoints_Team2": [
+                "Sector_201_2/CapturePoint_201/SpawnPoint_201"
+            ],
+            "CaptureArea": "Sector_201_2/CapturePoint_201/PolygonVolume_201",
+            "type": "CapturePoint",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": -174,
+                "y": 62,
+                "z": -27
+            },
+            "id": "Sector_201_2/CapturePoint_201",
+            "linked": [
+                "CaptureArea",
+                "InfantrySpawnPoints_Team1",
+                "InfantrySpawnPoints_Team2"
+            ]
+        },
+        {
+            "name": "PolygonVolume_201",
+            "type": "PolygonVolume",
+            "unique_id": 332417678,
+            "metadata/_custom_type_script": "uid://ck5uniw0pl6u8",
+            "color": [
+                0,
+                0.6,
+                0.7,
+                0.42
+            ],
+            "id": "Sector_201_2/CapturePoint_201/PolygonVolume_201",
+            "height": 5,
+            "points": [
+                {
+                    "x": -180.5930786,
+                    "y": 62,
+                    "z": -34.005398
+                },
+                {
+                    "x": -181.0367126,
+                    "y": 62,
+                    "z": -20.8735886
+                },
+                {
+                    "x": -168.9696503,
+                    "y": 62,
+                    "z": -20.6961308
+                },
+                {
+                    "x": -168.8809204,
+                    "y": 62,
+                    "z": -34.1828537
+                }
+            ]
+        },
+        {
+            "name": "SpawnPoint_201",
+            "type": "SpawnPoint",
+            "unique_id": 988915568,
+            "ObjId": 2011,
+            "metadata/_custom_type_script": "uid://jyjbwdgcb7hw",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": -185,
+                "y": 63,
+                "z": -57
+            },
+            "id": "Sector_201_2/CapturePoint_201/SpawnPoint_201"
+        },
+        {
+            "name": "Sector_202_2",
+            "unique_id": 566358110,
+            "ObjId": 302,
+            "CapturePoints": [
+                "Sector_202_2/CapturePoint_202"
+            ],
+            "SectorArea": "Sector_202_2/PolygonVolume_202_2",
+            "type": "Sector",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": -169,
+                "y": 0,
+                "z": 117
+            },
+            "id": "Sector_202_2",
+            "linked": [
+                "SectorArea",
+                "CapturePoints"
+            ]
+        },
+        {
+            "name": "CapturePoint_202",
+            "unique_id": 1570600686,
+            "ObjId": 202,
+            "InfantrySpawnPoints_Team1": [
+                "Sector_202_2/CapturePoint_202/SpawnPoint_202"
+            ],
+            "InfantrySpawnPoints_Team2": [
+                "Sector_202_2/CapturePoint_202/SpawnPoint_202"
+            ],
+            "CaptureArea": "Sector_202_2/CapturePoint_202/PolygonVolume_202",
+            "type": "CapturePoint",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": -169,
+                "y": 61,
+                "z": 117
+            },
+            "id": "Sector_202_2/CapturePoint_202",
+            "linked": [
+                "CaptureArea",
+                "InfantrySpawnPoints_Team1",
+                "InfantrySpawnPoints_Team2"
+            ]
+        },
+        {
+            "name": "PolygonVolume_202",
+            "type": "PolygonVolume",
+            "unique_id": 299687253,
+            "metadata/_custom_type_script": "uid://ck5uniw0pl6u8",
+            "color": [
+                0,
+                0.6,
+                0.7,
+                0.42
+            ],
+            "id": "Sector_202_2/CapturePoint_202/PolygonVolume_202",
+            "height": 5,
+            "points": [
+                {
+                    "x": -181.699402,
+                    "y": 61,
+                    "z": 110.746689
+                },
+                {
+                    "x": -181.661453,
+                    "y": 61,
+                    "z": 123.0792007
+                },
+                {
+                    "x": -152.74646,
+                    "y": 61,
+                    "z": 122.8894653
+                },
+                {
+                    "x": -152.936188,
+                    "y": 61,
+                    "z": 111.391777
+                }
+            ]
+        },
+        {
+            "name": "SpawnPoint_202",
+            "type": "SpawnPoint",
+            "unique_id": 1830761884,
+            "ObjId": 2021,
+            "metadata/_custom_type_script": "uid://jyjbwdgcb7hw",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": -179,
+                "y": 63,
+                "z": 113
+            },
+            "id": "Sector_202_2/CapturePoint_202/SpawnPoint_202"
+        },
+        {
+            "name": "PolygonVolume_202_2",
+            "unique_id": 163796925,
+            "type": "PolygonVolume",
+            "id": "Sector_202_2/PolygonVolume_202_2",
+            "height": 0,
+            "points": [
+                {
+                    "x": -187.353378,
+                    "y": 0,
+                    "z": 106.003639
+                },
+                {
+                    "x": -187.770782,
+                    "y": 0,
+                    "z": 125.811546
+                },
+                {
+                    "x": -148.610336,
+                    "y": 0,
+                    "z": 125.318245
+                },
+                {
+                    "x": -149.17952,
+                    "y": 0,
+                    "z": 106.155426
+                }
+            ]
+        },
+        {
+            "name": "Sector_203_2",
+            "unique_id": 603346453,
+            "ObjId": 303,
+            "CapturePoints": [
+                "Sector_203_2/CapturePoint_203"
+            ],
+            "SectorArea": "Sector_203_2/PolygonVolume_203_2",
+            "type": "Sector",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": -176,
+                "y": 0,
+                "z": 54
+            },
+            "id": "Sector_203_2",
+            "linked": [
+                "SectorArea",
+                "CapturePoints"
+            ]
+        },
+        {
+            "name": "CapturePoint_203",
+            "unique_id": 1992040631,
+            "ObjId": 203,
+            "InfantrySpawnPoints_Team1": [
+                "Sector_203_2/CapturePoint_203/SpawnPoint_203"
+            ],
+            "InfantrySpawnPoints_Team2": [
+                "Sector_203_2/CapturePoint_203/SpawnPoint_203"
+            ],
+            "CaptureArea": "Sector_203_2/CapturePoint_203/PolygonVolume_203",
+            "type": "CapturePoint",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": -176,
+                "y": 62,
+                "z": 54
+            },
+            "id": "Sector_203_2/CapturePoint_203",
+            "linked": [
+                "CaptureArea",
+                "InfantrySpawnPoints_Team1",
+                "InfantrySpawnPoints_Team2"
+            ]
+        },
+        {
+            "name": "PolygonVolume_203",
+            "type": "PolygonVolume",
+            "unique_id": 1197027460,
+            "metadata/_custom_type_script": "uid://ck5uniw0pl6u8",
+            "color": [
+                0,
+                0.6,
+                0.7,
+                0.42
+            ],
+            "id": "Sector_203_2/CapturePoint_203/PolygonVolume_203",
+            "height": 5,
+            "points": [
+                {
+                    "x": -182.6909637,
+                    "y": 62,
+                    "z": 45.351936
+                },
+                {
+                    "x": -181.966522,
+                    "y": 62,
+                    "z": 63.6702
+                },
+                {
+                    "x": -169.443878,
+                    "y": 62,
+                    "z": 63.6702
+                },
+                {
+                    "x": -169.6508484,
+                    "y": 62,
+                    "z": 45.662418
+                }
+            ]
+        },
+        {
+            "name": "SpawnPoint_203",
+            "type": "SpawnPoint",
+            "unique_id": 1432466323,
+            "ObjId": 2031,
+            "metadata/_custom_type_script": "uid://jyjbwdgcb7hw",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": -151,
+                "y": 63,
+                "z": 40
+            },
+            "id": "Sector_203_2/CapturePoint_203/SpawnPoint_203"
+        },
+        {
+            "name": "PolygonVolume_203_2",
+            "unique_id": 1190391176,
+            "type": "PolygonVolume",
+            "id": "Sector_203_2/PolygonVolume_203_2",
+            "height": 0,
+            "points": [
+                {
+                    "x": -186.209732,
+                    "y": 0,
+                    "z": 43.075317
+                },
+                {
+                    "x": -186.623703,
+                    "y": 0,
+                    "z": 68.8450775
+                },
+                {
+                    "x": -164.062225,
+                    "y": 0,
+                    "z": 68.017128
+                },
+                {
+                    "x": -165.92511,
+                    "y": 0,
+                    "z": 43.17881
+                }
+            ]
+        },
+        {
+            "name": "Sector_204_1",
+            "unique_id": 1373968962,
+            "ObjId": 304,
+            "CapturePoints": [
+                "Sector_204_1/CapturePoint_204"
+            ],
+            "SectorArea": "Sector_204_1/PolygonVolume_204_1",
+            "type": "Sector",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": -18,
+                "y": 0,
+                "z": -78
+            },
+            "id": "Sector_204_1",
+            "linked": [
+                "SectorArea",
+                "CapturePoints"
+            ]
+        },
+        {
+            "name": "CapturePoint_204",
+            "unique_id": 714091806,
+            "ObjId": 204,
+            "InfantrySpawnPoints_Team1": [
+                "Sector_204_1/CapturePoint_204/SpawnPoint_204"
+            ],
+            "InfantrySpawnPoints_Team2": [
+                "Sector_204_1/CapturePoint_204/SpawnPoint_204"
+            ],
+            "CaptureArea": "Sector_204_1/CapturePoint_204/PolygonVolume_204",
+            "type": "CapturePoint",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": -18,
+                "y": 63.14788,
+                "z": -78
+            },
+            "id": "Sector_204_1/CapturePoint_204",
+            "linked": [
+                "CaptureArea",
+                "InfantrySpawnPoints_Team1",
+                "InfantrySpawnPoints_Team2"
+            ]
+        },
+        {
+            "name": "PolygonVolume_204",
+            "type": "PolygonVolume",
+            "unique_id": 581910334,
+            "metadata/_custom_type_script": "uid://ck5uniw0pl6u8",
+            "color": [
+                0,
+                0.6,
+                0.7,
+                0.42
+            ],
+            "id": "Sector_204_1/CapturePoint_204/PolygonVolume_204",
+            "height": 5,
+            "points": [
+                {
+                    "x": -20.5316467,
+                    "y": 63.14788,
+                    "z": -81.9691772
+                },
+                {
+                    "x": -20.1481476,
+                    "y": 63.14788,
+                    "z": -74.203331
+                },
+                {
+                    "x": -11.279751,
+                    "y": 63.14788,
+                    "z": -74.2992096
+                },
+                {
+                    "x": -11.4714966,
+                    "y": 63.14788,
+                    "z": -82.1129837
+                }
+            ]
+        },
+        {
+            "name": "SpawnPoint_204",
+            "type": "SpawnPoint",
+            "unique_id": 363058139,
+            "ObjId": 2041,
+            "metadata/_custom_type_script": "uid://jyjbwdgcb7hw",
+            "right": {
+                "x": -0.9991944,
+                "y": 0,
+                "z": 0.040131908
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": -0.040131908,
+                "y": 0,
+                "z": -0.9991944
+            },
+            "position": {
+                "x": 18,
+                "y": 64.14788,
+                "z": -76
+            },
+            "id": "Sector_204_1/CapturePoint_204/SpawnPoint_204"
+        },
+        {
+            "name": "PolygonVolume_204_1",
+            "unique_id": 1782505117,
+            "type": "PolygonVolume",
+            "id": "Sector_204_1/PolygonVolume_204_1",
+            "height": 0,
+            "points": [
+                {
+                    "x": -22.257389,
+                    "y": 0,
+                    "z": -83.838501
+                },
+                {
+                    "x": -22.0656395,
+                    "y": 0,
+                    "z": -70.8954315
+                },
+                {
+                    "x": -8.067947,
+                    "y": 0,
+                    "z": -71.039238
+                },
+                {
+                    "x": -8.020012,
+                    "y": 0,
+                    "z": -83.215317
+                }
+            ]
+        },
+        {
+            "name": "Sector_205_1",
+            "unique_id": 392685428,
+            "ObjId": 305,
+            "CapturePoints": [
+                "Sector_205_1/CapturePoint_205"
+            ],
+            "SectorArea": "Sector_205_1/PolygonVolume_205_1",
+            "type": "Sector",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": -7,
+                "y": 0,
+                "z": 7
+            },
+            "id": "Sector_205_1",
+            "linked": [
+                "SectorArea",
+                "CapturePoints"
+            ]
+        },
+        {
+            "name": "PolygonVolume_205_1",
+            "unique_id": 713769997,
+            "type": "PolygonVolume",
+            "id": "Sector_205_1/PolygonVolume_205_1",
+            "height": 0,
+            "points": [
+                {
+                    "x": -17.421621,
+                    "y": 0,
+                    "z": -1.058113
+                },
+                {
+                    "x": -15.765734,
+                    "y": 0,
+                    "z": 15.293788
+                },
+                {
+                    "x": 4.829382,
+                    "y": 0,
+                    "z": 15.397282
+                },
+                {
+                    "x": 3.380476,
+                    "y": 0,
+                    "z": -2.507015
+                }
+            ]
+        },
+        {
+            "name": "CapturePoint_205",
+            "unique_id": 690901067,
+            "ObjId": 205,
+            "InfantrySpawnPoints_Team1": [
+                "Sector_205_1/CapturePoint_205/SpawnPoint_205"
+            ],
+            "InfantrySpawnPoints_Team2": [
+                "Sector_205_1/CapturePoint_205/SpawnPoint_205"
+            ],
+            "CaptureArea": "Sector_205_1/CapturePoint_205/PolygonVolume_205",
+            "type": "CapturePoint",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": -7,
+                "y": 62,
+                "z": 7
+            },
+            "id": "Sector_205_1/CapturePoint_205",
+            "linked": [
+                "CaptureArea",
+                "InfantrySpawnPoints_Team1",
+                "InfantrySpawnPoints_Team2"
+            ]
+        },
+        {
+            "name": "PolygonVolume_205",
+            "type": "PolygonVolume",
+            "unique_id": 496704634,
+            "metadata/_custom_type_script": "uid://ck5uniw0pl6u8",
+            "color": [
+                0,
+                0.6,
+                0.7,
+                0.42
+            ],
+            "id": "Sector_205_1/CapturePoint_205/PolygonVolume_205",
+            "height": 5,
+            "points": [
+                {
+                    "x": -14.4203205,
+                    "y": 62,
+                    "z": 1.011523
+                },
+                {
+                    "x": -14.0063496,
+                    "y": 62,
+                    "z": 12.188773
+                },
+                {
+                    "x": -1.4836903,
+                    "y": 62,
+                    "z": 12.292267
+                },
+                {
+                    "x": -2.1046467,
+                    "y": 62,
+                    "z": 0.90803
+                }
+            ]
+        },
+        {
+            "name": "SpawnPoint_205",
+            "type": "SpawnPoint",
+            "unique_id": 1450127846,
+            "ObjId": 2051,
+            "metadata/_custom_type_script": "uid://jyjbwdgcb7hw",
+            "right": {
+                "x": -0.6717207,
+                "y": 0,
+                "z": 0.74080455
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": -0.74080455,
+                "y": 0,
+                "z": -0.6717207
+            },
+            "position": {
+                "x": 28.259,
+                "y": 63.5,
+                "z": 32.328
+            },
+            "id": "Sector_205_1/CapturePoint_205/SpawnPoint_205"
+        },
+        {
             "name": "Sector_206_2",
             "unique_id": 1673060371,
             "ObjId": 306,
             "AutoEnableVehicles": false,
             "CapturePoints": [
-                "Sector_206_2/CapturePoint_200"
+                "Sector_206_2/CapturePoint_206"
             ],
-            "SectorArea": "CombatArea/CombatVolume",
+            "SectorArea": "Sector_206_2/PolygonVolume_206_2",
             "type": "Sector",
             "right": {
                 "x": 1,
@@ -1743,10 +1959,10 @@
             ]
         },
         {
-            "name": "PolygonVolume",
+            "name": "PolygonVolume_206_2",
             "unique_id": 1690673941,
             "type": "PolygonVolume",
-            "id": "Sector_206_2/PolygonVolume",
+            "id": "Sector_206_2/PolygonVolume_206_2",
             "height": 0,
             "points": [
                 {
@@ -1772,10 +1988,16 @@
             ]
         },
         {
-            "name": "CapturePoint_200",
+            "name": "CapturePoint_206",
             "unique_id": 1052165152,
             "ObjId": 206,
-            "CaptureArea": "Sector_206_2/CapturePoint_200/PolygonVolume",
+            "InfantrySpawnPoints_Team1": [
+                "Sector_206_2/CapturePoint_206/SpawnPoint_206"
+            ],
+            "InfantrySpawnPoints_Team2": [
+                "Sector_206_2/CapturePoint_206/SpawnPoint_206"
+            ],
+            "CaptureArea": "Sector_206_2/CapturePoint_206/PolygonVolume_206",
             "type": "CapturePoint",
             "right": {
                 "x": 1,
@@ -1797,13 +2019,15 @@
                 "y": 63,
                 "z": -19
             },
-            "id": "Sector_206_2/CapturePoint_200",
+            "id": "Sector_206_2/CapturePoint_206",
             "linked": [
-                "CaptureArea"
+                "CaptureArea",
+                "InfantrySpawnPoints_Team1",
+                "InfantrySpawnPoints_Team2"
             ]
         },
         {
-            "name": "PolygonVolume",
+            "name": "PolygonVolume_206",
             "type": "PolygonVolume",
             "unique_id": 1359049120,
             "metadata/_custom_type_script": "uid://ck5uniw0pl6u8",
@@ -1813,7 +2037,7 @@
                 0.7,
                 0.42
             ],
-            "id": "Sector_206_2/CapturePoint_200/PolygonVolume",
+            "id": "Sector_206_2/CapturePoint_206/PolygonVolume_206",
             "height": 5,
             "points": [
                 {
@@ -1839,13 +2063,41 @@
             ]
         },
         {
+            "name": "SpawnPoint_206",
+            "type": "SpawnPoint",
+            "unique_id": 1503131883,
+            "ObjId": 2001,
+            "metadata/_custom_type_script": "uid://jyjbwdgcb7hw",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": -210,
+                "y": 64,
+                "z": -24
+            },
+            "id": "Sector_206_2/CapturePoint_206/SpawnPoint_206"
+        },
+        {
             "name": "Sector_207_1",
             "unique_id": 875531749,
             "ObjId": 307,
             "CapturePoints": [
                 "Sector_207_1/CapturePoint_207"
             ],
-            "SectorArea": "CombatArea/CombatVolume",
+            "SectorArea": "Sector_207_1/PolygonVolume_207_1",
             "type": "Sector",
             "right": {
                 "x": 1,
@@ -1874,77 +2126,10 @@
             ]
         },
         {
-            "name": "CapturePoint_207",
-            "unique_id": 1591302066,
-            "ObjId": 207,
-            "CaptureArea": "Sector_207_1/CapturePoint_207/PolygonVolume",
-            "type": "CapturePoint",
-            "right": {
-                "x": 1,
-                "y": 0,
-                "z": 0
-            },
-            "up": {
-                "x": 0,
-                "y": 1,
-                "z": 0
-            },
-            "front": {
-                "x": 0,
-                "y": 0,
-                "z": 1
-            },
-            "position": {
-                "x": 5,
-                "y": 63.14788,
-                "z": -21
-            },
-            "id": "Sector_207_1/CapturePoint_207",
-            "linked": [
-                "CaptureArea"
-            ]
-        },
-        {
-            "name": "PolygonVolume",
-            "type": "PolygonVolume",
-            "unique_id": 427735753,
-            "metadata/_custom_type_script": "uid://ck5uniw0pl6u8",
-            "color": [
-                0,
-                0.6,
-                0.7,
-                0.42
-            ],
-            "id": "Sector_207_1/CapturePoint_207/PolygonVolume",
-            "height": 5,
-            "points": [
-                {
-                    "x": 0.122882,
-                    "y": 63.14788,
-                    "z": -25.200777
-                },
-                {
-                    "x": 0.2523785,
-                    "y": 63.14788,
-                    "z": -15.462661
-                },
-                {
-                    "x": 12.088333,
-                    "y": 63.14788,
-                    "z": -15.5921574
-                },
-                {
-                    "x": 11.9847374,
-                    "y": 63.14788,
-                    "z": -25.226677
-                }
-            ]
-        },
-        {
-            "name": "PolygonVolume",
+            "name": "PolygonVolume_207_1",
             "unique_id": 1787918452,
             "type": "PolygonVolume",
-            "id": "Sector_207_1/PolygonVolume",
+            "id": "Sector_207_1/PolygonVolume_207_1",
             "height": 0,
             "points": [
                 {
@@ -1970,13 +2155,116 @@
             ]
         },
         {
+            "name": "CapturePoint_207",
+            "unique_id": 1591302066,
+            "ObjId": 207,
+            "InfantrySpawnPoints_Team1": [
+                "Sector_207_1/CapturePoint_207/SpawnPoint_207"
+            ],
+            "InfantrySpawnPoints_Team2": [
+                "Sector_207_1/CapturePoint_207/SpawnPoint_207"
+            ],
+            "CaptureArea": "Sector_207_1/CapturePoint_207/PolygonVolume_207",
+            "type": "CapturePoint",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": 5,
+                "y": 63.14788,
+                "z": -21
+            },
+            "id": "Sector_207_1/CapturePoint_207",
+            "linked": [
+                "CaptureArea",
+                "InfantrySpawnPoints_Team1",
+                "InfantrySpawnPoints_Team2"
+            ]
+        },
+        {
+            "name": "PolygonVolume_207",
+            "type": "PolygonVolume",
+            "unique_id": 427735753,
+            "metadata/_custom_type_script": "uid://ck5uniw0pl6u8",
+            "color": [
+                0,
+                0.6,
+                0.7,
+                0.42
+            ],
+            "id": "Sector_207_1/CapturePoint_207/PolygonVolume_207",
+            "height": 5,
+            "points": [
+                {
+                    "x": 0.122882,
+                    "y": 63.14788,
+                    "z": -25.200777
+                },
+                {
+                    "x": 0.2523785,
+                    "y": 63.14788,
+                    "z": -15.462661
+                },
+                {
+                    "x": 12.088333,
+                    "y": 63.14788,
+                    "z": -15.5921574
+                },
+                {
+                    "x": 11.9847374,
+                    "y": 63.14788,
+                    "z": -25.226677
+                }
+            ]
+        },
+        {
+            "name": "SpawnPoint_207",
+            "type": "SpawnPoint",
+            "unique_id": 587432664,
+            "ObjId": 2071,
+            "metadata/_custom_type_script": "uid://jyjbwdgcb7hw",
+            "right": {
+                "x": 0.44150588,
+                "y": 0,
+                "z": 0.89725834
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": -0.89725834,
+                "y": 0,
+                "z": 0.44150588
+            },
+            "position": {
+                "x": 35,
+                "y": 64.14788,
+                "z": -11
+            },
+            "id": "Sector_207_1/CapturePoint_207/SpawnPoint_207"
+        },
+        {
             "name": "Sector_208_1",
             "unique_id": 481902263,
             "ObjId": 308,
             "CapturePoints": [
                 "Sector_208_1/CapturePoint_208"
             ],
-            "SectorArea": "CombatArea/CombatVolume",
+            "SectorArea": "Sector_208_1/PolygonVolume_208_1",
             "type": "Sector",
             "right": {
                 "x": 1,
@@ -2008,7 +2296,13 @@
             "name": "CapturePoint_208",
             "unique_id": 402163442,
             "ObjId": 208,
-            "CaptureArea": "Sector_208_1/CapturePoint_208/PolygonVolume",
+            "InfantrySpawnPoints_Team1": [
+                "Sector_208_1/CapturePoint_208/SpawnPoint_208"
+            ],
+            "InfantrySpawnPoints_Team2": [
+                "Sector_208_1/CapturePoint_208/SpawnPoint_208"
+            ],
+            "CaptureArea": "Sector_208_1/CapturePoint_208/PolygonVolume_208",
             "type": "CapturePoint",
             "right": {
                 "x": 1,
@@ -2032,11 +2326,13 @@
             },
             "id": "Sector_208_1/CapturePoint_208",
             "linked": [
-                "CaptureArea"
+                "CaptureArea",
+                "InfantrySpawnPoints_Team1",
+                "InfantrySpawnPoints_Team2"
             ]
         },
         {
-            "name": "PolygonVolume",
+            "name": "PolygonVolume_208",
             "type": "PolygonVolume",
             "unique_id": 1756746867,
             "metadata/_custom_type_script": "uid://ck5uniw0pl6u8",
@@ -2046,7 +2342,7 @@
                 0.7,
                 0.42
             ],
-            "id": "Sector_208_1/CapturePoint_208/PolygonVolume",
+            "id": "Sector_208_1/CapturePoint_208/PolygonVolume_208",
             "height": 5,
             "points": [
                 {
@@ -2072,10 +2368,38 @@
             ]
         },
         {
-            "name": "PolygonVolume",
+            "name": "SpawnPoint_208",
+            "type": "SpawnPoint",
+            "unique_id": 420637626,
+            "ObjId": 2081,
+            "metadata/_custom_type_script": "uid://jyjbwdgcb7hw",
+            "right": {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            "position": {
+                "x": 16,
+                "y": 64.14788,
+                "z": -123
+            },
+            "id": "Sector_208_1/CapturePoint_208/SpawnPoint_208"
+        },
+        {
+            "name": "PolygonVolume_208_1",
             "unique_id": 563972282,
             "type": "PolygonVolume",
-            "id": "Sector_208_1/PolygonVolume",
+            "id": "Sector_208_1/PolygonVolume_208_1",
             "height": 0,
             "points": [
                 {
@@ -2105,9 +2429,9 @@
             "unique_id": 1564305744,
             "ObjId": 309,
             "CapturePoints": [
-                "Sector_209_2/CapturePoint_201"
+                "Sector_209_2/CapturePoint_209"
             ],
-            "SectorArea": "CombatArea/CombatVolume",
+            "SectorArea": "Sector_209_2/PolygonVolume_209_2",
             "type": "Sector",
             "right": {
                 "x": 1,
@@ -2136,16 +2460,16 @@
             ]
         },
         {
-            "name": "PolygonVolume",
+            "name": "PolygonVolume_209_2",
             "unique_id": 1847950243,
             "type": "PolygonVolume",
-            "id": "Sector_209_2/PolygonVolume",
+            "id": "Sector_209_2/PolygonVolume_209_2",
             "height": 0,
             "points": [
                 {
-                    "x": -115.892792,
+                    "x": -115.348328,
                     "y": 0,
-                    "z": -85.909225
+                    "z": -93.544716
                 },
                 {
                     "x": -116.602631,
@@ -2153,22 +2477,28 @@
                     "z": -64.082027
                 },
                 {
-                    "x": -94.331787,
+                    "x": -94.031952,
                     "y": 0,
-                    "z": -63.549655
+                    "z": -63.617493
                 },
                 {
-                    "x": -94.065598,
+                    "x": -94.092178,
                     "y": 0,
-                    "z": -85.909225
+                    "z": -93.725365
                 }
             ]
         },
         {
-            "name": "CapturePoint_201",
+            "name": "CapturePoint_209",
             "unique_id": 1415209935,
             "ObjId": 209,
-            "CaptureArea": "Sector_209_2/CapturePoint_201/PolygonVolume",
+            "InfantrySpawnPoints_Team1": [
+                "Sector_209_2/CapturePoint_209/SpawnPoint_209"
+            ],
+            "InfantrySpawnPoints_Team2": [
+                "Sector_209_2/CapturePoint_209/SpawnPoint_209"
+            ],
+            "CaptureArea": "Sector_209_2/CapturePoint_209/PolygonVolume_209",
             "type": "CapturePoint",
             "right": {
                 "x": 1,
@@ -2190,13 +2520,15 @@
                 "y": 62,
                 "z": -75
             },
-            "id": "Sector_209_2/CapturePoint_201",
+            "id": "Sector_209_2/CapturePoint_209",
             "linked": [
-                "CaptureArea"
+                "CaptureArea",
+                "InfantrySpawnPoints_Team1",
+                "InfantrySpawnPoints_Team2"
             ]
         },
         {
-            "name": "PolygonVolume",
+            "name": "PolygonVolume_209",
             "type": "PolygonVolume",
             "unique_id": 634143398,
             "metadata/_custom_type_script": "uid://ck5uniw0pl6u8",
@@ -2206,7 +2538,7 @@
                 0.7,
                 0.42
             ],
-            "id": "Sector_209_2/CapturePoint_201/PolygonVolume",
+            "id": "Sector_209_2/CapturePoint_209/PolygonVolume_209",
             "height": 5,
             "points": [
                 {
@@ -2215,21 +2547,49 @@
                     "z": -82.001602
                 },
                 {
-                    "x": -108.5851593,
+                    "x": -108.724594,
                     "y": 62,
-                    "z": -69.1376266
+                    "z": -68.7962646
                 },
                 {
-                    "x": -96.871956,
+                    "x": -96.56102,
                     "y": 62,
-                    "z": -69.3431244
+                    "z": -68.9769135
                 },
                 {
-                    "x": -96.543167,
+                    "x": -96.500801,
                     "y": 62,
-                    "z": -82.1660004
+                    "z": -82.2243805
                 }
             ]
+        },
+        {
+            "name": "SpawnPoint_209",
+            "type": "SpawnPoint",
+            "unique_id": 899966929,
+            "ObjId": 2091,
+            "metadata/_custom_type_script": "uid://jyjbwdgcb7hw",
+            "right": {
+                "x": 0.9477684,
+                "y": 0,
+                "z": -0.31895933
+            },
+            "up": {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            "front": {
+                "x": 0.31895933,
+                "y": 0,
+                "z": 0.9477684
+            },
+            "position": {
+                "x": -103.203,
+                "y": 64,
+                "z": -91.275
+            },
+            "id": "Sector_209_2/CapturePoint_209/SpawnPoint_209"
         },
         {
             "name": "WorldIcon",
