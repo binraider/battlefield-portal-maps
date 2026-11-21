@@ -3,7 +3,7 @@ const CP_ID_BASE = 200;
 const SECTOR_ID_BASE = 300;
 const CENTER_CP_ID = 250;
 const CENTER_SECTOR_ID = 350;
-const ROTATE_SECONDS = 60;
+const ROTATE_SECONDS = 75;
 const MATCH_TIME_SECONDS = 20 * 60;
 const TARGET_SCORE = 50;
 
@@ -49,8 +49,8 @@ const cpDistances: number[][] = [];
 /** World positions of rotating CPs (for first handoff from center). */
 const cpPositions: mod.Vector[] = [];
 /** Oldest → newest indices of recently active rotating CPs (fixed buffer, no push/shift). */
-const RECENT_CP_MAX = 5;
-const recentCpSlots: number[] = [-1, -1, -1, -1, -1];
+const RECENT_CP_MAX = 3;
+const recentCpSlots: number[] = [-1, -1, -1];
 let recentCpCount = 0;
 
 export async function OnGameModeStarted() {
@@ -164,6 +164,7 @@ function configureCapturePoint(cp: mod.CapturePoint) {
 }
 
 async function activateCenter() {
+    // Sector must be on or the CP never appears in-world / on the HUD.
     mod.EnableGameModeObjective(centerSector, true);
     await mod.Wait(1);
     mod.EnableGameModeObjective(centerCp, true);
@@ -490,20 +491,26 @@ function sortCandidatesByDistance(
     }
 }
 
-/** Random pick among the nearest up-to-3 candidates (already sorted by distance). */
+/**
+ * Random pick among 2nd–4th nearest (skip closest). Already sorted by distance.
+ * If only one candidate remains, use it; if fewer than four, use whatever ranks exist after #1.
+ */
 function pickRandomNearest(candidates: number[]): number {
     if (candidates.length === 0) {
         return activeCpIndex >= 0 ? activeCpIndex : 0;
     }
-    const take = candidates.length < 3 ? candidates.length : 3;
+    if (candidates.length === 1) {
+        return candidates[0];
+    }
+    const end = candidates.length < 4 ? candidates.length : 4;
     let pool = mod.EmptyArray();
-    for (var i = 0; i < take; i++) {
+    for (var i = 1; i < end; i++) {
         pool = mod.AppendToArray(pool, candidates[i]);
     }
     return mod.RandomValueInArray(pool) as number;
 }
 
-/** First handoff off the center opener: random among nearest 3 to center (not in last five). */
+/** First handoff off the center opener: random among 2nd–4th nearest to center (not in last three). */
 function pickNextCpIndexFromPosition(fromPosition: mod.Vector): number {
     const candidates = collectRotatingCandidates(-1);
     sortCandidatesByDistance(candidates, (index) =>
@@ -512,7 +519,7 @@ function pickNextCpIndexFromPosition(fromPosition: mod.Vector): number {
     return pickRandomNearest(candidates);
 }
 
-/** Exclude last-five history; among the rest pick random of nearest 3 to current. */
+/** Exclude last-three history; among the rest pick random of 2nd–4th nearest to current. */
 function pickNextCpIndex(): number {
     const candidates = collectRotatingCandidates(activeCpIndex);
 
