@@ -151,13 +151,13 @@ CaptureArea = NodePath("PolygonVolume")
 
 [node name="PolygonVolume" type="Node3D" parent="Sector_Center/CapturePoint_205" unique_id=955875067]
 script = ExtResource("9_w5fug")
-points = PackedVector2Array(-8.574318, -7.0215607, -8.367332, 8.502491, 7.0532303, 7.985023, 6.432266, -7.332041)
+points = PackedVector2Array(-14.017166, -3.4970112, -13.771393, 15.673039, 6.9552, 13.870725, 6.545578, -6.5281715)
 height = 5.0
 color = Color(0, 0.6, 0.7, 0.42)
 metadata/_custom_type_script = "uid://ck5uniw0pl6u8"
 
 [node name="PolygonVolume" parent="Sector_Center" unique_id=1296282862 instance=ExtResource("2_x0lkc")]
-points = PackedVector2Array(-13.955994, -12.299515, -14.576958, 10.158614, 13.676819, 11.297044, 12.227913, -12.609997)
+points = PackedVector2Array(-18.277176, -13.655273, -19.915634, 17.06596, 14.655983, 16.656343, 14.328293, -12.754116)
 
 [node name="Sector_200_1" parent="." unique_id=2036017170 node_paths=PackedStringArray("SectorArea", "CapturePoints") instance=ExtResource("10_abo5i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 57)

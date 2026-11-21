@@ -43,6 +43,9 @@ let previewHideAt = -1;
 const playerAssists: number[] = [];
 /** Personal combat score keyed by mod.GetObjId(player). */
 const playerScores: number[] = [];
+/** Cached K/D — engine GetPlayerKills/Deaths can read as 0 on the end screen for the other team. */
+const playerKills: number[] = [];
+const playerDeaths: number[] = [];
 
 /** Pairwise distances between rotating CPs (built once at match start). */
 const cpDistances: number[][] = [];
@@ -151,7 +154,7 @@ export async function OnGameModeStarted() {
         updateTeamScores();
         awardHillPlayerScores();
         updateScoreBoardTotal();
-        if (tryEndMatchByScore()) {
+        if (await tryEndMatchByScore()) {
             break;
         }
     }
@@ -308,6 +311,8 @@ export function OnPlayerEarnedKill(
     _eventWeaponUnlock: mod.WeaponUnlock
 ) {
     if (mod.IsPlayerValid(eventPlayer)) {
+        const id = mod.GetObjId(eventPlayer);
+        playerKills[id] = (playerKills[id] ? playerKills[id] : 0) + 1;
         addPlayerScore(eventPlayer, SCORE_KILL);
     }
     updatePlayerScoreboard(eventOtherPlayer);
@@ -319,6 +324,10 @@ export function OnPlayerDied(
     _eventDeathType: mod.DeathType,
     _eventWeaponUnlock: mod.WeaponUnlock
 ) {
+    if (mod.IsPlayerValid(eventPlayer)) {
+        const id = mod.GetObjId(eventPlayer);
+        playerDeaths[id] = (playerDeaths[id] ? playerDeaths[id] : 0) + 1;
+    }
     updatePlayerScoreboard(eventPlayer);
 }
 
@@ -348,6 +357,12 @@ function initPlayerStats(player: mod.Player) {
     if (!playerScores[id]) {
         playerScores[id] = 0;
     }
+    if (!playerKills[id]) {
+        playerKills[id] = 0;
+    }
+    if (!playerDeaths[id]) {
+        playerDeaths[id] = 0;
+    }
 }
 
 function addPlayerScore(player: mod.Player, amount: number) {
@@ -365,14 +380,36 @@ function updatePlayerScoreboard(player: mod.Player) {
     }
     const id = mod.GetObjId(player);
     const score = playerScores[id] ? playerScores[id] : 0;
+    const kills = playerKills[id] ? playerKills[id] : 0;
+    const deaths = playerDeaths[id] ? playerDeaths[id] : 0;
     const assists = playerAssists[id] ? playerAssists[id] : 0;
-    mod.SetScoreboardPlayerValues(
-        player,
-        score,
-        mod.GetPlayerKills(player),
-        mod.GetPlayerDeaths(player),
-        assists
-    );
+    mod.SetScoreboardPlayerValues(player, score, kills, deaths, assists);
+}
+
+/** Re-push custom columns for everyone — column/header rebuilds can wipe values. */
+function refreshAllPlayerScoreboards() {
+    const players = mod.AllPlayers();
+    const n = mod.CountOf(players);
+    for (var i = 0; i < n; i++) {
+        const p = mod.ValueInArray(players, i) as mod.Player;
+        updatePlayerScoreboard(p);
+    }
+}
+
+/** Full custom board layout + all player rows (needed before/at end screen). */
+function reapplyScoreboard() {
+    const score1 = mod.GetGameModeScore(mod.GetTeam(1));
+    const score2 = mod.GetGameModeScore(mod.GetTeam(2));
+    mod.SetScoreboardType(mod.ScoreboardType.CustomTwoTeams);
+    setupScoreboardColumns();
+    mod.SetScoreboardHeader(mod.Message(mod.stringkeys.score, score1), mod.Message(mod.stringkeys.score, score2));
+    refreshAllPlayerScoreboards();
+}
+
+export async function OnGameModeEnding() {
+    reapplyScoreboard();
+    await mod.Wait(0.5);
+    reapplyScoreboard();
 }
 
 /** Rush-style: enable sector, wait, then enable its capture point. */
@@ -539,9 +576,9 @@ function pickNextCpIndex(): number {
 function updateScoreBoardTotal() {
     const score1 = mod.GetGameModeScore(mod.GetTeam(1));
     const score2 = mod.GetGameModeScore(mod.GetTeam(2));
-    // Re-apply columns — some layouts clear them when the header is rewritten.
-    setupScoreboardColumns();
+    // Header only mid-match — re-running columns every tick can wipe the other team's rows.
     mod.SetScoreboardHeader(mod.Message(mod.stringkeys.score, score1), mod.Message(mod.stringkeys.score, score2));
+    refreshAllPlayerScoreboards();
 }
 
 function getSecondsPerPoint(pointsHeld: number): number {
@@ -549,18 +586,26 @@ function getSecondsPerPoint(pointsHeld: number): number {
 }
 
 /** First team to TARGET_SCORE wins; ends the match. */
-function tryEndMatchByScore(): boolean {
+async function tryEndMatchByScore(): Promise<boolean> {
     const score1 = mod.GetGameModeScore(mod.GetTeam(1));
     const score2 = mod.GetGameModeScore(mod.GetTeam(2));
     if (score1 >= TARGET_SCORE) {
-        mod.EndGameMode(mod.GetTeam(1));
+        await finalizeScoreboardThenEnd(mod.GetTeam(1));
         return true;
     }
     if (score2 >= TARGET_SCORE) {
-        mod.EndGameMode(mod.GetTeam(2));
+        await finalizeScoreboardThenEnd(mod.GetTeam(2));
         return true;
     }
     return false;
+}
+
+/** Push both teams' rows, let them settle, then end — end screen otherwise shows enemy 0s. */
+async function finalizeScoreboardThenEnd(winningTeam: mod.Team) {
+    reapplyScoreboard();
+    await mod.Wait(1);
+    reapplyScoreboard();
+    mod.EndGameMode(winningTeam);
 }
 
 function getActiveCapturePoint(): mod.CapturePoint | null {
